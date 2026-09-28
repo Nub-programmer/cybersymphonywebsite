@@ -1,0 +1,6 @@
+{
+  "name": "Cyber Symphony 2026",
+  "description": "Cyber Symphony 2026 is the inter-school technology festival of Jagran Public School, Noida, featuring innovation, programming, design, gaming, robotics, cybersecurity and more.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

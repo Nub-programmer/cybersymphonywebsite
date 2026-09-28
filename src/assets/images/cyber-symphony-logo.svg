@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Exact vertical linear gradient from electric cyan to sapphire blue to deep indigo/violet -->
+    <linearGradient id="csGradient" x1="500" y1="50" x2="500" y2="985" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00C4FF" />
+      <stop offset="28%" stop-color="#009BF5" />
+      <stop offset="55%" stop-color="#1B60E0" />
+      <stop offset="80%" stop-color="#283BC2" />
+      <stop offset="100%" stop-color="#3C1A99" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Top Horizontal Bar -->
+  <rect x="152" y="55" width="696" height="110" fill="url(#csGradient)" rx="4" />
+
+  <!-- 2. Left Crest Body: Stylized 'C' and Left wing of 'T' -->
+  <polygon
+    points="
+      152,200
+      484,200
+      484,470
+      384,425
+      384,310
+      298,310
+      298,630
+      384,670
+      484,625
+      484,985
+      152,755
+    "
+    fill="url(#csGradient)"
+  />
+
+  <!-- 3. Right Crest Body: Stylized 'S' and Right wing of 'T' -->
+  <polygon
+    points="
+      516,200
+      848,200
+      848,405
+      624,405
+      742,465
+      848,520
+      848,755
+      516,985
+      516,565
+      722,465
+      620,412
+      516,412
+    "
+    fill="url(#csGradient)"
+  />
+</svg>

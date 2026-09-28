@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Syne', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --color-ivory: #FAF9F5;
+  --color-warm: #F3F1EA;
+  --color-dark: #19201B;
+  --color-ink: #151515;
+  --color-muted-blue: #325E7D;
+  --color-bright-blue: #1BBBE8;
+  --color-peach: #F1C4B0;
+  --color-sage: #A9B09D;
+}
+
+:root {
+  --bg-primary: #FAF9F5;
+  --bg-warm: #F3F1EA;
+  --bg-dark: #19201B;
+  --text-primary: #151515;
+  --text-muted: #575757;
+  --accent-muted: #325E7D;
+  --accent-bright: #1BBBE8;
+  --accent-peach: #F1C4B0;
+  --accent-sage: #A9B09D;
+
+  /* Global site gutter system */
+  --gutter-site: clamp(24px, 5.5vw, 84px);
+  --content-max-width: 1480px;
+  --body-max-width: 680px;
+}
+
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Global container utility */
+.site-container {
+  padding-left: var(--gutter-site);
+  padding-right: var(--gutter-site);
+  width: 100%;
+}
+
+/* Editorial Typography Classes */
+.font-display {
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-serif-editorial {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+/* Sliding Baseline Link Hover */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Tactile button hover utility */
+.btn-tactile {
+  transition: background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-tactile:hover {
+  transform: translateY(-2px);
+}
+
+.btn-tactile:active {
+  transform: translateY(0);
+}
+
+/* Perspective utilities for 3D physical brochure */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Realistic physical booklet paper shadow */
+.paper-shadow {
+  box-shadow: 0 16px 38px -10px rgba(25, 32, 27, 0.18),
+              0 3px 12px rgba(0, 0, 0, 0.05),
+              inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.paper-shadow-hover {
+  box-shadow: 0 28px 56px -12px rgba(25, 32, 27, 0.24),
+              0 6px 18px rgba(0, 0, 0, 0.07),
+              inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* Spine Crease & Book Fold Gradients */
+.book-spine-crease {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.02) 20%,
+    transparent 45%,
+    rgba(0, 0, 0, 0.18) 50%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.02) 80%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+}
+
+/* Corner Dog-Ear Page Curl */
+.dog-ear-curl {
+  position: relative;
+}
+
+.dog-ear-curl::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 22px 22px;
+  border-color: transparent transparent #DDD8CE transparent;
+  box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.08);
+  transition: border-width 0.25s ease-out;
+}
+
+.dog-ear-curl:hover::after {
+  border-width: 0 0 32px 32px;
+}
+
+/* Prevent accidental horizontal overflow */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Clean scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9D5CC;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #325E7D;
+}
