@@ -38,19 +38,20 @@ export const BrochurePage: React.FC<BrochurePageProps> = ({ onNavigate }) => {
       tag: 'SECTION II',
       title: 'EVENT CODES',
       subtitle: 'SUMMARY SPECIFICATIONS',
-      description: 'Eleven distinct arenas organized across algorithmic, mechatronic, and creative verticals.',
+      description: 'Twelve distinct arenas organized across algorithmic, mechatronic, and creative verticals.',
       content: [
         '01. Innovation Sprint (Hybrid) — Concept paper & physical defense',
-        '02. Web Forge (Offline) — 3-hour live web development sprint',
+        '02. UI/UX Rumble (Offline) — 3-hour live web designing & UI/UX sprint',
         '03. Framelock (Format Under Review) — Video editing & digital media',
         '04. Quizzard (Offline) — Written prelims & live buzzer finals',
         '05. Hyperstrike PC (Offline) — Tactical PC esports arena (Game: TBA)',
         '06. Hyperstrike Mobile (Offline) — Mobile battle arena (Game: TBA)',
         '07. Twisttriads (Offline) — 2×2, 3×3, and Pyraminx WCA speedcubing',
         '08. Flying Machine (Offline) — Water rocket aerodynamics & launch (Rules: TBA)',
-        '09. Nocturne 3301 (Online) — 24-hour cryptographic & cryptic hunt',
+        '09. Nocturne (Online) — 24-hour cyber and cryptic hunt with CTF challenges',
         '10. Robo Soccer (Offline) — Controlled robot football championship (Rules: TBA)',
-        '11. Huddle Mania (Offline) — Terrestrial obstacle robotics bottleneck (Rules: TBA)'
+        '11. Huddle Mania (Offline) — Terrestrial obstacle robotics bottleneck (Rules: TBA)',
+        '12. Tech Crossfire (Offline) — Technology & digital-policy forum'
       ]
     },
     {

@@ -29,7 +29,7 @@ const INITIAL_PAYLOAD: RegistrationPayload = {
     mobileNumber: '',
     isAuthorized: false,
   },
-  selectedEventSlugs: ['innovation-sprint', 'web-forge'],
+  selectedEventSlugs: ['innovation-sprint', 'ui-ux-rumble'],
   eventTeams: {},
 };
 

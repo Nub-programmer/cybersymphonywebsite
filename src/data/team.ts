@@ -5,6 +5,28 @@ export interface TeamMember {
   department: string;
 }
 
+export interface FacultyMember {
+  id: string;
+  name: string;
+  role: string;
+  department?: string;
+}
+
+export const TEACHER_IN_CHARGES: FacultyMember[] = [
+  {
+    id: 'tic-1',
+    name: 'To Be Announced',
+    role: 'Teacher In-Charge',
+    department: 'Department of Computer Science & Technology',
+  },
+  {
+    id: 'tic-2',
+    name: 'To Be Announced',
+    role: 'Faculty Coordinator',
+    department: 'Department of Science & Innovation',
+  },
+];
+
 export const SYMPHONISERS_LEADERSHIP: TeamMember[] = [
   {
     id: 'president',

@@ -14,21 +14,22 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
   const sectionRef = useRef<HTMLDivElement>(null);
   const statementStageRef = useRef<HTMLDivElement>(null);
   const disciplinesStageRef = useRef<HTMLDivElement>(null);
-  const events11StageRef = useRef<HTMLDivElement>(null);
+  const eventsStageRef = useRef<HTMLDivElement>(null);
   const ribbonWrapperRef = useRef<HTMLDivElement>(null);
 
   const disciplines = [
     'INNOVATION',
-    'WEB DEVELOPMENT',
+    'WEB DESIGNING',
     'DIGITAL MEDIA',
     'TECHNOLOGY QUIZ',
     'PC GAMING',
     'MOBILE GAMING',
     'SPEEDCUBING',
     'WATER ROCKET',
-    'CYBERSECURITY',
+    'CYBER HUNT',
     'ROBO SOCCER',
     'OBSTACLE ROBOTICS',
+    'DIGITAL POLICY',
   ];
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      // DESKTOP: ONE MASTER PINNED TIMELINE FOR DISCIPLINES → 11 EVENTS
+      // DESKTOP: ONE MASTER PINNED TIMELINE FOR DISCIPLINES → 12 EVENTS
       mm.add('(min-width: 768px)', () => {
         const masterTl = gsap.timeline({
           scrollTrigger: {
@@ -56,7 +57,7 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
 
         // Initial setup
         gsap.set(disciplinesStageRef.current, { opacity: 0, pointerEvents: 'none' });
-        gsap.set(events11StageRef.current, { opacity: 0, pointerEvents: 'none' });
+        gsap.set(eventsStageRef.current, { opacity: 0, pointerEvents: 'none' });
         gsap.set(ribbonWrapperRef.current, { yPercent: 40, rotate: 0, opacity: 0.9 });
 
         // 0–28%: Statement stage active. Ribbon sits near bottom.
@@ -102,14 +103,14 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
           0.65
         );
 
-        // 75–90%: Behind the ribbon, 11 EVENTS appears with immense impact
+        // 75–90%: Behind the ribbon, 12 EVENTS appears with immense impact
         masterTl.to(
-          events11StageRef.current,
+          eventsStageRef.current,
           { opacity: 1, pointerEvents: 'auto', y: 0, ease: 'power2.out', duration: 0.15 },
           0.75
         );
 
-        // 90–100%: Ribbon leaves screen at the top, leaving pure 11 EVENTS
+        // 90–100%: Ribbon leaves screen at the top, leaving pure 12 EVENTS
         masterTl.to(
           ribbonWrapperRef.current,
           { yPercent: -400, opacity: 0, ease: 'power2.in', duration: 0.1 },
@@ -156,7 +157,7 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
               Cyber Symphony is the inter-school technology festival of Jagran Public School, Noida.
             </p>
             <p className="font-mono text-xs sm:text-sm tracking-widest text-[#575757] uppercase">
-              17 October 2026 · One Day · Eleven Disciplines
+              17 October 2026 · One Day · Twelve Disciplines
             </p>
           </div>
         </div>
@@ -189,9 +190,9 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
           </div>
         </div>
 
-        {/* STAGE 3: 11 EVENTS REVEAL */}
+        {/* STAGE 3: EVENTS REVEAL (DERIVED FROM EVENTS.length) */}
         <div
-          ref={events11StageRef}
+          ref={eventsStageRef}
           className="relative md:absolute md:inset-0 flex flex-col justify-center py-12 md:py-0 md:opacity-0"
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-10 border-b border-[#151515]/10">
@@ -208,7 +209,7 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
             </div>
 
             <p className="max-w-[var(--body-max-width)] text-sm sm:text-base text-[#575757] leading-relaxed font-light mb-4">
-              Curated across ideation sprints, web development, video editing, robotics, gaming, water rockets, speedcubing, and cryptographic hunt.
+              Curated across ideation sprints, web designing, video editing, robotics, gaming, water rockets, speedcubing, digital policy debate, and online cyber hunts.
             </p>
           </div>
         </div>

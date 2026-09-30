@@ -1,6 +1,7 @@
 import React from 'react';
 import { FESTIVAL_INFO } from '../data/socials';
 import { EVENTS } from '../data/events';
+import cyberSymphonyLogo from '../assets/images/thecybersymphonylogoweb.png';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -20,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isDarkTheme = false 
           <div className="md:col-span-6 flex flex-col gap-4">
             <div className="flex items-center gap-3.5">
               <img
-                src="/assets/cyber-symphony-logo.svg"
+                src={cyberSymphonyLogo}
                 alt="Cyber Symphony Emblem"
                 className="w-9 h-9 sm:w-10 sm:h-10 object-contain shrink-0"
               />

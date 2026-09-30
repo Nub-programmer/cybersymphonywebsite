@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FestivalRibbon } from './FestivalRibbon';
+import { EVENTS } from '../data/events';
+import cyberSymphonyLogo from '../assets/images/thecybersymphonylogoweb.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -190,7 +192,7 @@ export const BrochureSection: React.FC<BrochureSectionProps> = ({
     const element = document.createElement('a');
     const file = new Blob(
       [
-        `CYBER SYMPHONY 2026 — OFFICIAL FIELD GUIDE\nJagran Public School, Noida\nOrganised by The Symphonisers\nDate: 17 October 2026\nPrimary Domain: cybersynchronizer.tech\n\n11 CONFIRMED COMPETITIONS:\n01. Innovation Sprint (Hybrid)\n02. Web Forge (Offline)\n03. Framelock (Video Editing / Digital Media, Format Under Review)\n04. Quizzard (Technology Quiz, Offline)\n05. Hyperstrike PC (PC Gaming, Offline, Game: TBA)\n06. Hyperstrike Mobile (Mobile Gaming, Offline, Game: TBA)\n07. Twisttriads (Speedcubing: 2x2, 3x3, Pyraminx, Offline)\n08. Flying Machine (Water Rocket, Offline, Rules: TBA)\n09. Nocturne 3301 (CTF x Cryptic Hunt, Online)\n10. Robo Soccer (Robotics / Robo Soccer, Offline, Rules: TBA)\n11. Huddle Mania (Obstacle Robotics, Offline, Rules: TBA)\n\nRegistration: https://cybersynchronizer.tech/register`,
+        `CYBER SYMPHONY 2026 — OFFICIAL FIELD GUIDE\nJagran Public School, Noida\nOrganised by The Symphonisers\nDate: 17 October 2026\nPrimary Domain: cybersynchronizer.tech\n\n12 CONFIRMED COMPETITIONS:\n01. Innovation Sprint (Hybrid)\n02. UI/UX Rumble (Web Designing / UI-UX, Offline)\n03. Framelock (Video Editing / Digital Media, Format Under Review)\n04. Quizzard (Technology Quiz, Offline)\n05. Hyperstrike PC (PC Gaming, Offline, Game: TBA)\n06. Hyperstrike Mobile (Mobile Gaming, Offline, Game: TBA)\n07. Twisttriads (Speedcubing: 2x2, 3x3, Pyraminx, Offline)\n08. Flying Machine (Water Rocket, Offline, Rules: TBA)\n09. Nocturne (Cyber Hunt / Cryptic Hunt, Online)\n10. Robo Soccer (Robotics / Robo Soccer, Offline, Rules: TBA)\n11. Huddle Mania (Obstacle Robotics, Offline, Rules: TBA)\n12. Tech Crossfire (Tech MUN / Digital Policy, Offline)\n\nRegistration: https://cybersynchronizer.tech/register`,
       ],
       { type: 'text/plain' }
     );
@@ -346,7 +348,7 @@ export const BrochureSection: React.FC<BrochureSectionProps> = ({
                 <div className="my-auto py-4 flex flex-col items-start z-10">
                   <div className="mb-4">
                     <img
-                      src="/assets/cyber-symphony-logo.svg"
+                      src={cyberSymphonyLogo}
                       alt="Cyber Symphony Logo"
                       className="w-14 h-14 object-contain filter drop-shadow-[0_4px_12px_rgba(0,196,255,0.2)]"
                     />
@@ -395,7 +397,7 @@ export const BrochureSection: React.FC<BrochureSectionProps> = ({
         {/* Bottom indicator */}
         <div className="flex justify-between items-center text-xs font-mono text-[#888] pt-3 border-t border-black/10 z-20">
           <span>THE SYMPHONISERS</span>
-          <span>11 ACTIVE COMPETITIONS</span>
+          <span>{EVENTS.length} ACTIVE COMPETITIONS</span>
         </div>
       </div>
 
@@ -413,8 +415,8 @@ export const BrochureSection: React.FC<BrochureSectionProps> = ({
         <div className="bg-[#F3F1EA] border border-black/10 p-6 space-y-4 rounded-[2px] paper-shadow">
           <div className="flex items-center gap-3">
             <img
-              src="/assets/cyber-symphony-logo.svg"
-              alt="Logo"
+              src={cyberSymphonyLogo}
+              alt="Cyber Symphony Emblem"
               className="w-10 h-10 object-contain"
             />
             <div>
@@ -454,8 +456,8 @@ export const BrochureSection: React.FC<BrochureSectionProps> = ({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-black/10 font-mono text-xs tracking-widest uppercase">
               <div className="flex items-center gap-3">
                 <img
-                  src="/assets/cyber-symphony-logo.svg"
-                  alt="Logo"
+                  src={cyberSymphonyLogo}
+                  alt="Cyber Symphony Logo"
                   className="w-6 h-6 object-contain"
                 />
                 <span className="text-[#325E7D] font-bold">{pages[currentPage].tag}</span>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ambientAudio } from '../audio/ambientAudio';
+import cyberSymphonyLogo from '../assets/images/thecybersymphonylogoweb.png';
 
 interface LoadingScreenProps {
   onLoaded: () => void;
@@ -34,7 +35,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoaded }) => {
 
       // 2. Main Logo decode
       const logoImg = new Image();
-      logoImg.src = '/assets/cyber-symphony-logo.svg';
+      logoImg.src = cyberSymphonyLogo;
       promises.push(
         new Promise((resolve) => {
           if (logoImg.complete) {
@@ -164,7 +165,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoaded }) => {
         <div className="w-16 h-16 sm:w-20 sm:h-20 mb-8 flex items-center justify-center">
           <img
             ref={logoRef}
-            src="/assets/cyber-symphony-logo.svg"
+            src={cyberSymphonyLogo}
             alt="Cyber Symphony Emblem"
             className="w-full h-full object-contain filter drop-shadow-[0_8px_30px_rgba(0,196,255,0.22)]"
           />

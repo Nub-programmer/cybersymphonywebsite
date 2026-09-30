@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FestivalRibbon } from './FestivalRibbon';
+import cyberSymphonyLogo from '../assets/images/thecybersymphonylogoweb.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,13 +15,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
   const wrapperRef = useRef<HTMLDivElement>(null);
   const posterRef = useRef<HTMLDivElement>(null);
   const titleContainerRef = useRef<HTMLDivElement>(null);
+  const theRef = useRef<HTMLSpanElement>(null);
   const cyberRef = useRef<HTMLHeadingElement>(null);
   const symphonyRef = useRef<HTMLHeadingElement>(null);
   const cyberSpanRef = useRef<HTMLSpanElement>(null);
   const symphonySpanRef = useRef<HTMLSpanElement>(null);
   const logoRightRef = useRef<HTMLDivElement>(null);
   const emblemCardRef = useRef<HTMLDivElement>(null);
-  const yearRef = useRef<HTMLSpanElement>(null);
+  const yearRef = useRef<HTMLDivElement>(null);
   const metaTopRef = useRef<HTMLDivElement>(null);
   const metaBottomRef = useRef<HTMLDivElement>(null);
   const revealStatementRef = useRef<HTMLDivElement>(null);
@@ -106,7 +108,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
     }
   }, [hasEntered]);
 
-  // Subtle pointer tilt & hover physics for Desktop Emblem Card
+  // Subtle pointer tilt & hover physics for Desktop Emblem Card (only when near top of page)
   useEffect(() => {
     const el = emblemCardRef.current;
     if (!el || typeof window === 'undefined') return;
@@ -114,10 +116,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
     const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
     if (isTouchDevice) return;
 
-    const qRotateX = gsap.quickTo(el, 'rotateX', { duration: 0.45, ease: 'power2.out' });
-    const qRotateY = gsap.quickTo(el, 'rotateY', { duration: 0.45, ease: 'power2.out' });
-    const qY = gsap.quickTo(el, 'y', { duration: 0.45, ease: 'power2.out' });
-    const qScale = gsap.quickTo(el, 'scale', { duration: 0.45, ease: 'power2.out' });
+    const qRotateX = gsap.quickTo(el, 'rotateX', { duration: 0.35, ease: 'power2.out' });
+    const qRotateY = gsap.quickTo(el, 'rotateY', { duration: 0.35, ease: 'power2.out' });
+    const qY = gsap.quickTo(el, 'y', { duration: 0.35, ease: 'power2.out' });
+    const qScale = gsap.quickTo(el, 'scale', { duration: 0.35, ease: 'power2.out' });
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
@@ -131,7 +133,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
       qRotateX(rotX);
       qRotateY(rotY);
       qY(-4);
-      qScale(1.035);
+      qScale(1.03);
     };
 
     const handleMouseLeave = () => {
@@ -150,40 +152,54 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
     };
   }, []);
 
-  // GSAP Entrance & Scroll Choreography
+  // GSAP Deterministic Initial State & Scrub Timeline
   useEffect(() => {
-    if (!hasEntered) return;
+    if (!hasEntered || !wrapperRef.current) return;
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion || !wrapperRef.current) return;
+    if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // 1. Initial calm entry sequence on first load
-      const enterTl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1.0 } });
-      enterTl
-        .fromTo(
-          cyberRef.current,
-          { yPercent: 100, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 0.9 }
-        )
-        .fromTo(
-          symphonyRef.current,
-          { yPercent: 100, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 0.9 },
-          '-=0.7'
-        )
-        .fromTo(
-          logoRightRef.current,
-          { opacity: 0, y: 18, scale: 0.94 },
-          { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: 'power3.out' },
-          '-=0.6'
-        )
-        .fromTo(
-          [metaTopRef.current, metaBottomRef.current],
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.8, stagger: 0.15 },
-          '-=0.5'
-        );
+      // 1. Explicitly initialise the elements before creating the ScrollTrigger
+      // Deterministic base values at progress 0:
+      gsap.set(theRef.current, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        clearProps: 'transform',
+      });
+      gsap.set(cyberRef.current, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        clearProps: 'transform',
+      });
+      gsap.set(symphonyRef.current, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        clearProps: 'transform',
+      });
+      gsap.set(logoRightRef.current, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        clearProps: 'transform',
+      });
+      gsap.set(yearRef.current, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        clearProps: 'transform',
+      });
+      gsap.set([metaTopRef.current, metaBottomRef.current], {
+        opacity: 1,
+        y: 0,
+      });
 
       // 2. Desktop master pinned timeline (only on >= 768px)
       const mm = gsap.matchMedia();
@@ -192,64 +208,83 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
           scrollTrigger: {
             trigger: wrapperRef.current,
             start: 'top top',
-            end: () => `+=${window.innerHeight * 1.5}`,
+            end: '+=180%',
             pin: true,
-            scrub: 0.8,
+            scrub: true, // Direct 1:1 scroll synchronization with zero lag catch-up
             anticipatePin: 1,
             invalidateOnRefresh: true,
           },
         });
 
-        // 0–28% STATE 1 & 2: Title and logo remain solid and shift subtly
+        // 0–30%: HOLD STATE — Title, THE, Logo and 2026 remain 100% solid & fully visible
+        masterTl.to({}, { duration: 0.28 }, 0);
+
+        // 28–55%: Logo, Title, and 2026 smoothly transition away
+        masterTl.to(
+          logoRightRef.current,
+          {
+            y: -40,
+            opacity: 0,
+            scale: 0.96,
+            ease: 'none',
+            duration: 0.22,
+          },
+          0.28
+        );
+        masterTl.to(
+          theRef.current,
+          {
+            y: -20,
+            opacity: 0,
+            ease: 'none',
+            duration: 0.2,
+          },
+          0.28
+        );
         masterTl.to(
           cyberRef.current,
-          { xPercent: -1.5, ease: 'power1.inOut', duration: 0.28 },
-          0
+          {
+            x: -25,
+            opacity: 0,
+            ease: 'none',
+            duration: 0.22,
+          },
+          0.28
         );
         masterTl.to(
           symphonyRef.current,
-          { xPercent: 1.5, ease: 'power1.inOut', duration: 0.28 },
-          0
-        );
-        masterTl.to(
-          logoRightRef.current,
-          { yPercent: -5, scale: 1.02, opacity: 0.95, ease: 'power1.inOut', duration: 0.28 },
-          0
-        );
-
-        // 28–60% STATE 3: Logo and title smoothly fade down into negative space
-        masterTl.to(
-          [cyberRef.current, symphonyRef.current, logoRightRef.current],
-          { opacity: 0.12, ease: 'power1.inOut', duration: 0.32 },
+          {
+            x: 25,
+            opacity: 0,
+            ease: 'none',
+            duration: 0.22,
+          },
           0.28
         );
         masterTl.to(
           [metaTopRef.current, metaBottomRef.current],
-          { opacity: 0.2, ease: 'power1.inOut', duration: 0.32 },
+          {
+            opacity: 0.2,
+            ease: 'none',
+            duration: 0.22,
+          },
           0.28
         );
 
-        // 60–85% STATE 4: Statement reveals through mask
+        // 55–80%: Statement reveals cleanly through negative space
         masterTl.fromTo(
           revealStatementRef.current,
           { opacity: 0, clipPath: 'inset(100% 0% 0% 0%)', y: 20 },
-          { opacity: 1, clipPath: 'inset(0% 0% 0% 0%)', y: 0, ease: 'power2.inOut', duration: 0.25 },
-          0.6
+          { opacity: 1, clipPath: 'inset(0% 0% 0% 0%)', y: 0, ease: 'none', duration: 0.25 },
+          0.55
         );
 
-        // 80–100% Festival Ribbon enters from lower-left
+        // 75–100%: Festival Ribbon enters from lower-left
         masterTl.fromTo(
           ribbonWrapperRef.current,
           { yPercent: 180, xPercent: -15, opacity: 0, rotate: -2 },
-          { yPercent: 0, xPercent: 0, opacity: 1, rotate: -1.5, ease: 'power2.out', duration: 0.25 },
+          { yPercent: 0, xPercent: 0, opacity: 1, rotate: -1.5, ease: 'none', duration: 0.25 },
           0.75
-        );
-
-        // 85–100% Original title fades out smoothly for visual silence
-        masterTl.to(
-          [cyberRef.current, symphonyRef.current, logoRightRef.current],
-          { opacity: 0, yPercent: -8, ease: 'power1.in', duration: 0.15 },
-          0.85
         );
       });
     }, wrapperRef);
@@ -285,8 +320,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
 
         {/* 
           Main Compositional Centerpiece: 
-          Desktop 2-Part Composition with tight gap (~25% closer):
-          Left: minmax(0, 1fr) for Typography
+          Desktop 2-Part Composition:
+          Left: minmax(0, 1fr) for Typography ("THE CYBER SYMPHONY")
           Right: clamp(180px, 19vw, 320px) for Official Emblem + 2026 Group
           Slight upward optical shift (-translate-y-3 sm:-translate-y-5)
         */}
@@ -299,6 +334,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
             ref={titleContainerRef}
             className="hero-title min-w-0 w-full max-w-full flex flex-col justify-center"
           >
+            {/* THE - Solid near-black, ~30–40% scale of CYBER line, aligned to left edge */}
+            <div className="w-full max-w-full overflow-hidden">
+              <span
+                ref={theRef}
+                className="hero-the font-display font-bold text-[#151515] uppercase block whitespace-nowrap"
+                style={{
+                  fontSize: 'clamp(2.8rem, 4vw, 5rem)',
+                  fontWeight: 700,
+                  lineHeight: 0.85,
+                  letterSpacing: '-0.045em',
+                  marginBottom: '0.15em',
+                  color: '#151515',
+                  opacity: 1,
+                }}
+              >
+                THE
+              </span>
+            </div>
+
             {/* CYBER ROW */}
             <div className="w-full max-w-full overflow-hidden">
               <h1
@@ -326,31 +380,40 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
             </div>
           </div>
 
-          {/* RIGHT: OFFICIAL EMBLEM & 2026 GROUP */}
+          {/* RIGHT: OFFICIAL EMBLEM & 2026 GROUP (Direct on off-white background, no white card/box) */}
           <div
             ref={logoRightRef}
-            className="logo-column w-full flex flex-row md:flex-col items-center md:items-center justify-between md:justify-center mt-3 md:mt-0 opacity-100"
+            className="hero-logo-wrap relative flex flex-col items-center justify-center bg-transparent [isolation:isolate] select-none mt-4 md:mt-0"
           >
-            {/* Official Emblem with subtle perspective hover */}
+            {/* Subtle atmospheric glow behind it */}
+            <div
+              className="absolute w-[135%] aspect-square rounded-full -z-10 pointer-events-none blur-[24px]"
+              style={{
+                background:
+                  'radial-gradient(circle, rgba(28, 160, 255, 0.10) 0%, rgba(31, 92, 255, 0.04) 40%, transparent 70%)',
+              }}
+            />
+
+            {/* Emblem Image with hover physics */}
             <div
               ref={emblemCardRef}
-              className="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 lg:w-52 lg:h-52 xl:w-56 xl:h-56 flex items-center justify-center shrink-0 cursor-pointer will-change-transform transform-style-3d"
+              className="cursor-pointer will-change-transform transform-style-3d flex items-center justify-center bg-transparent"
             >
               <img
-                src="/assets/cyber-symphony-logo.svg"
-                alt="Cyber Symphony Official Emblem"
-                className="w-full h-full object-contain filter drop-shadow-[0_8px_28px_rgba(0,196,255,0.18)] select-none pointer-events-none"
+                src={cyberSymphonyLogo}
+                alt="Cyber Symphony"
+                className="hero-logo block w-[clamp(150px,15vw,230px)] h-auto object-contain bg-transparent border-0 shadow-none filter drop-shadow-[0_0_26px_rgba(28,160,255,0.10)] select-none pointer-events-none"
                 draggable={false}
               />
             </div>
 
             {/* Elegant 2026 Serif Accent aligned directly underneath */}
-            <span
+            <div
               ref={yearRef}
-              className="font-serif-editorial italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1C4463] select-none pointer-events-none mt-1 md:mt-2"
+              className="hero-year font-serif-editorial italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1C4463] select-none pointer-events-none mt-2"
             >
               2026
-            </span>
+            </div>
           </div>
 
           {/* Masked reveal on scrub: BEYOND THE SCREEN */}

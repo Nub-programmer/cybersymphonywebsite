@@ -57,34 +57,36 @@ export const EVENTS: FestivalEvent[] = [
   },
   {
     id: '02',
-    slug: 'web-forge',
+    slug: 'ui-ux-rumble',
     number: '02',
-    name: 'WEB FORGE',
-    category: 'Web Development',
+    name: 'UI/UX RUMBLE',
+    category: 'Web Designing / UI-UX',
     mode: 'Offline',
-    summary: 'Rapid architectural design and client-side implementation of an original web application from a live brief.',
+    summary: 'Design and build a polished, responsive website from a given brief, with emphasis on UI/UX, creativity and presentation.',
     teamSize: '2 members',
     eligibility: 'Grades IX – XII',
     duration: '3 Hours',
     venue: 'Computer Laboratory Beta',
     about: [
-      'Web Forge challenges participants to deliver production-grade frontend interfaces with clean code and intuitive user experiences under strict time limits.'
+      'A web designing competition where teams create a visually strong, responsive and user-friendly website based on a given theme or problem statement.',
+      'Judging focuses on interface design, layout, usability, responsiveness, creativity and overall presentation.'
     ],
     format: [
-      'On-site real-time web development sprint responding to a prompt revealed at the opening bell.'
+      'On-site web designing sprint where teams design and develop a responsive website and interactive user interface responding to a brief revealed at the opening bell.'
     ],
     rules: [
-      'Modern web stacks permitted: React, Next.js, Vue, or vanilla TypeScript / HTML / CSS.',
-      'Pre-built website kits and boilerplate site templates are prohibited.'
+      'Teams may use modern web stacks and design-to-web tooling (HTML, CSS, JavaScript/TypeScript, React, Tailwind CSS, or Webflow/Framer/Figma with live deploy).',
+      'All visual designs and code must be authored authentically during the event hours.',
+      'Pre-made website templates and downloaded theme packs are strictly prohibited.'
     ],
     whatToBring: [
-      'Laptops configured with local development environments (Node.js, Git)'
+      'Laptops configured with web browsers, development environments, and UI design tools'
     ],
     judging: [
-      'Code Quality & Clean Architecture (30%)',
-      'Design Craft & Micro-interactions (30%)',
-      'Completeness against Brief (25%)',
-      'Responsive Execution (15%)'
+      'Interface Design & Visual Aesthetics (30%)',
+      'Layout & Multi-Device Responsiveness (25%)',
+      'Usability & User Experience Logic (25%)',
+      'Creativity, Originality & Presentation (20%)'
     ]
   },
   {
@@ -275,28 +277,28 @@ export const EVENTS: FestivalEvent[] = [
     id: '09',
     slug: 'nocturne',
     number: '09',
-    name: 'NOCTURNE 3301',
-    subtitle: 'CTF × CRYPTIC HUNT',
-    category: 'Cybersecurity / Cryptic Hunt',
+    name: 'NOCTURNE',
+    subtitle: 'FOLLOW THE CLUE. BREAK THE PATTERN.',
+    category: 'Cyber Hunt / Cryptic Hunt',
     mode: 'Online',
-    summary: 'A 24-hour asynchronous cryptic hunt and capture-the-flag marathon demanding lateral deduction, reverse engineering, and esoteric research.',
+    summary: 'A layered online cryptic and cyber hunt featuring research, logic, hidden clues and selected CTF-style challenges including cryptography and reverse engineering.',
     teamSize: '1–3 members',
     eligibility: 'Open to Grades VIII – XII',
     duration: '24 Continuous Hours',
     venue: 'Online Platform (Discord & Dedicated Terminal)',
     about: [
-      'Nocturne 3301 is the sole online discipline of Cyber Symphony, running through the night before the on-site festival.',
-      'Teams solve sequential puzzles spanning steganography, audio spectrums, cipher systems, web exploits, and cryptic deductions.'
+      'Nocturne is an online cyber and cryptic hunt built around layered clues, internet research, hidden information, logic and puzzle-solving, with selected CTF-style elements such as cryptography, reverse engineering and other cybersecurity challenges woven into the hunt.',
+      'Running continuously for 24 hours, delegations navigate esoteric clues, audio spectrograms, steganography, digital forensics, and lateral research problems.'
     ],
     format: [
-      'Continuous 24-hour live scoreboard challenge.'
+      'Continuous 24-hour live scoreboard hunt featuring progressive puzzle tiers and selected CTF security challenges.'
     ],
     rules: [
       'Sharing flags, solutions, or clues between delegations results in immediate disqualification.',
-      'Attacking or brute-forcing challenge servers is strictly forbidden.'
+      'Attacking or brute-forcing challenge infrastructure is strictly forbidden.'
     ],
     whatToBring: [
-      'Computer with stable internet connection and cryptanalysis toolkits'
+      'Computer with stable internet connection, cipher decoders, and cryptanalysis toolkits'
     ],
     judging: [
       'Dynamic point scoreboard with timestamps for tiebreakers'
@@ -361,9 +363,51 @@ export const EVENTS: FestivalEvent[] = [
     judging: [
       'Course completion time and checkpoint score'
     ]
+  },
+  {
+    id: '12',
+    slug: 'tech-crossfire',
+    number: '12',
+    name: 'TECH CROSSFIRE',
+    category: 'Tech MUN / Digital Policy',
+    mode: 'Offline',
+    summary: 'A technology and digital-policy forum exploring AI governance, cybersecurity, privacy, digital rights and emerging technologies.',
+    teamSize: '1–2 delegates',
+    eligibility: 'Grades IX – XII',
+    duration: '3 Hours 30 Minutes',
+    venue: 'Committee Chamber / Conference Hall',
+    about: [
+      'Tech Crossfire is an inter-school technology parliament and digital-policy symposium.',
+      'Delegates represent global institutions, nation-states, and industry bodies to debate AI ethics, algorithmic accountability, data privacy, and cyber sovereignty.'
+    ],
+    format: [
+      'Opening statements followed by moderated caucus debate, crisis directive introduction, and policy resolution draft presentation.'
+    ],
+    rules: [
+      'Standard parliamentary and MUN committee rules apply.',
+      'Delegates must defend positions grounded in technological feasibility, international policy, and human rights frameworks.'
+    ],
+    whatToBring: [
+      'Laptops/tablets for research and resolution drafting',
+      'Policy background dossiers and credentials'
+    ],
+    judging: [
+      'Policy Depth & Technological Analysis (35%)',
+      'Argumentation & Rebuttal (30%)',
+      'Diplomatic Collaboration & Resolution Craft (20%)',
+      'Oratory & Decorum (15%)'
+    ]
   }
 ];
 
 export const getEventBySlug = (slug: string): FestivalEvent | undefined => {
-  return EVENTS.find((e) => e.slug === slug || (slug === 'nocturne-3301' && e.slug === 'nocturne'));
+  return EVENTS.find(
+    (e) =>
+      e.slug === slug ||
+      (slug === 'ui-ux-rumble' && e.slug === 'ui-ux-rumble') ||
+      (slug === 'web-forge' && e.slug === 'ui-ux-rumble') ||
+      (slug === 'webforge' && e.slug === 'ui-ux-rumble') ||
+      (slug === 'nocturne-3301' && e.slug === 'nocturne') ||
+      (slug === 'nocturne' && e.slug === 'nocturne')
+  );
 };

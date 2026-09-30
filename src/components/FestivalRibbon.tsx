@@ -23,7 +23,7 @@ export const FestivalRibbon: React.FC<FestivalRibbonProps> = ({
     'JAGRAN PUBLIC SCHOOL, NOIDA',
     'THE SYMPHONISERS',
     'PROGRAMME',
-    '11 EVENTS',
+    '12 EVENTS',
   ],
   style,
 }) => {

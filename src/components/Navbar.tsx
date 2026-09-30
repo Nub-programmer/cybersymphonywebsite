@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import cyberSymphonyLogo from '../assets/images/thecybersymphonylogoweb.png';
 
 interface NavbarProps {
   currentPath: string;
@@ -64,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-label="Cyber Symphony 2026 Home"
           >
             <img
-              src="/assets/cyber-symphony-logo.svg"
+              src={cyberSymphonyLogo}
               alt="Cyber Symphony Emblem"
               className="w-7 h-7 sm:w-9 sm:h-9 object-contain filter drop-shadow-[0_2px_10px_rgba(0,196,255,0.2)] transition-transform duration-300 group-hover:scale-105"
             />
