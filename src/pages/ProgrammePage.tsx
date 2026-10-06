@@ -43,7 +43,7 @@ export const ProgrammePage: React.FC<ProgrammePageProps> = ({
             THE PROGRAMME
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-[#575757] font-light max-w-2xl leading-relaxed">
-            Competitive arenas spanning algorithmic engineering, tactical robotics, web development, visual media, and cryptic deduction.
+            Competitive arenas spanning AI trivia, innovation hackathons, esports, debate, web designing, video editing, speedcubing, cryptic hunts, precision robotics, and rocketry.
           </p>
         </div>
 
@@ -155,12 +155,12 @@ export const ProgrammePage: React.FC<ProgrammePageProps> = ({
           <span className="font-mono text-xs text-[#575757]">
             READY TO REGISTER YOUR SCHOOL DELEGATION?
           </span>
-          <button
-            onClick={onRegisterClick}
-            className="font-mono text-xs uppercase tracking-widest font-semibold bg-[#151515] text-[#FAF9F5] px-6 py-3 hover:bg-[#325E7D] transition-colors cursor-pointer"
+          <a
+            href="/register"
+            className="font-mono text-xs uppercase tracking-widest font-semibold bg-[#151515] text-[#FAF9F5] px-6 py-3 hover:bg-[#325E7D] transition-colors cursor-pointer inline-block"
           >
             GO TO REGISTRATION PORTAL ↗
-          </button>
+          </a>
         </div>
       </div>
     </div>

@@ -444,15 +444,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
             <span>ORGANISED BY THE SYMPHONISERS</span>
           </div>
 
-          <button
-            onClick={onRegisterClick}
+          <a
+            href="/register"
             className="btn-tactile hover-underline font-semibold text-[#151515] hover:text-[#1C4463] transition-colors cursor-pointer group flex items-center gap-1.5"
           >
             <span>REGISTER YOUR SCHOOL</span>
             <span className="transform transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5">
               ↗
             </span>
-          </button>
+          </a>
         </div>
       </div>
 

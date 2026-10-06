@@ -60,6 +60,10 @@ export default function App() {
   }, []);
 
   const navigateTo = (path: string) => {
+    if (path === '/register') {
+      window.location.href = '/register';
+      return;
+    }
     if (path === currentPath) return;
 
     setIsPageTransitioning(true);

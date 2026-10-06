@@ -240,12 +240,12 @@ export const EventProgramme: React.FC<EventProgrammeProps> = ({
               </h4>
             </div>
 
-            <button
-              onClick={onRegisterClick}
-              className="btn-tactile font-mono text-xs uppercase tracking-wider font-semibold border border-current px-5 py-2.5 rounded-[2px] hover:bg-current hover:text-white transition-all cursor-pointer self-start md:self-auto"
+            <a
+              href="/register"
+              className="btn-tactile font-mono text-xs uppercase tracking-wider font-semibold border border-current px-5 py-2.5 rounded-[2px] hover:bg-current hover:text-white transition-all cursor-pointer self-start md:self-auto inline-block text-center"
             >
               REGISTER SCHOOL DELEGATION ↗
-            </button>
+            </a>
           </div>
 
           {/* Clean Rows: Refined hover interaction - translates name right 8-14px, darkens divider, shifts mode */}

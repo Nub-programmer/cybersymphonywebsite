@@ -120,8 +120,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Action Area: Register CTA on desktop / MENU toggle on mobile */}
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => onNavigate('/register')}
+            <a
+              href="/register"
               className={`hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded-sm transition-all duration-200 cursor-pointer ${
                 isDarkTheme
                   ? 'bg-[#00C4FF] text-[#111412] hover:bg-[#FAF9F5]'
@@ -130,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <span>Register</span>
               <span className="font-mono text-xs">↗</span>
-            </button>
+            </a>
 
             {/* Mobile MENU Button */}
             <button
@@ -183,17 +183,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="flex flex-col gap-3 pt-6 border-t border-black/10">
-            <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                onNavigate('/register');
-              }}
+            <a
+              href="/register"
+              onClick={() => setIsMobileMenuOpen(false)}
               className={`w-full py-4 text-center font-mono text-xs uppercase tracking-widest font-bold rounded-sm ${
                 isDarkTheme ? 'bg-[#00C4FF] text-[#111412]' : 'bg-[#151515] text-[#FAF9F5]'
               }`}
             >
               REGISTER SCHOOL DELEGATION ↗
-            </button>
+            </a>
             <div className="text-center font-mono text-[10px] text-[#575757] uppercase tracking-wider pt-2">
               17 OCTOBER 2026 · JAGRAN PUBLIC SCHOOL, NOIDA
             </div>

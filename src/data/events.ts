@@ -5,7 +5,7 @@ export interface FestivalEvent {
   name: string;
   subtitle?: string;
   category: string;
-  mode: 'Offline' | 'Online' | 'Hybrid' | 'Format Under Review';
+  mode: 'Offline' | 'Online' | 'Hybrid';
   summary: string;
   teamSize: string;
   eligibility: string;
@@ -22,255 +22,266 @@ export interface FestivalEvent {
 export const EVENTS: FestivalEvent[] = [
   {
     id: '01',
-    slug: 'innovation-sprint',
-    number: '01',
-    name: 'INNOVATION SPRINT',
-    category: 'Innovation / Ideathon / Hackathon',
-    mode: 'Hybrid',
-    summary: 'Online ideation and concept submission followed by on-site prototype build, refinement, demo, and jury pitch.',
-    teamSize: '2–4 members',
-    eligibility: 'Grades IX – XII',
-    duration: 'Online Preliminary + 4 Hours On-Site Finale',
-    venue: 'Innovation Hub / Seminar Hall',
-    about: [
-      'Innovation Sprint is the flagship engineering and product crucible of Cyber Symphony 2026.',
-      'Teams develop high-impact computational, hardware, or societal solutions, presenting tangible working prototypes to an industry jury.'
-    ],
-    format: [
-      'Phase 1 (Online): Concept paper and architectural blueprint submission.',
-      'Phase 2 (Offline): On-site sprint, functional demonstration, and pitch defense on 17 October 2026.'
-    ],
-    rules: [
-      'All code and project assets must be authentic to the student delegation.',
-      'Presentations capped at 5 minutes with 3 minutes of jury Q&A.'
-    ],
-    whatToBring: [
-      'Laptops and hardware demonstrators',
-      'Display adapters (HDMI)'
-    ],
-    judging: [
-      'Technical Architecture & Feasibility (30%)',
-      'Problem Significance (25%)',
-      'Functional Execution (25%)',
-      'Clarity of Defense (20%)'
-    ]
-  },
-  {
-    id: '02',
-    slug: 'ui-ux-rumble',
-    number: '02',
-    name: 'UI/UX RUMBLE',
-    category: 'Web Designing / UI-UX',
-    mode: 'Offline',
-    summary: 'Design and build a polished, responsive website from a given brief, with emphasis on UI/UX, creativity and presentation.',
-    teamSize: '2 members',
-    eligibility: 'Grades IX – XII',
-    duration: '3 Hours',
-    venue: 'Computer Laboratory Beta',
-    about: [
-      'A web designing competition where teams create a visually strong, responsive and user-friendly website based on a given theme or problem statement.',
-      'Judging focuses on interface design, layout, usability, responsiveness, creativity and overall presentation.'
-    ],
-    format: [
-      'On-site web designing sprint where teams design and develop a responsive website and interactive user interface responding to a brief revealed at the opening bell.'
-    ],
-    rules: [
-      'Teams may use modern web stacks and design-to-web tooling (HTML, CSS, JavaScript/TypeScript, React, Tailwind CSS, or Webflow/Framer/Figma with live deploy).',
-      'All visual designs and code must be authored authentically during the event hours.',
-      'Pre-made website templates and downloaded theme packs are strictly prohibited.'
-    ],
-    whatToBring: [
-      'Laptops configured with web browsers, development environments, and UI design tools'
-    ],
-    judging: [
-      'Interface Design & Visual Aesthetics (30%)',
-      'Layout & Multi-Device Responsiveness (25%)',
-      'Usability & User Experience Logic (25%)',
-      'Creativity, Originality & Presentation (20%)'
-    ]
-  },
-  {
-    id: '03',
-    slug: 'framelock',
-    number: '03',
-    name: 'FRAMELOCK',
-    category: 'Video Editing / Digital Media',
-    mode: 'Format Under Review',
-    summary: 'Cinematic storytelling, visual media narrative, and editorial post-production capturing the kinetic energy of the symposium.',
-    teamSize: '1–2 members',
-    eligibility: 'Grades VIII – XII',
-    duration: 'Full Day Festival Coverage + Post-Production',
-    venue: 'Media Lab & Campus Grounds',
-    about: [
-      'Framelock is the symposium’s visual media and documentary filmmaking arena.',
-      'Participants produce a polished video edit capturing the atmosphere and competition intensities across campus.'
-    ],
-    format: [
-      'Documentary assignment released on festival morning followed by timeline editing and color grading.'
-    ],
-    rules: [
-      'Footage must be captured on campus during the festival hours.',
-      'Generative AI replacement of footage is prohibited.'
-    ],
-    whatToBring: [
-      'DSLR / Mirrorless Camera and storage media',
-      'Editing laptop (Premiere Pro, DaVinci Resolve, Final Cut)'
-    ],
-    judging: [
-      'Narrative Flow & Storytelling (35%)',
-      'Cinematography & Composition (30%)',
-      'Editing Rhythm & Sound Design (20%)',
-      'Pacing & Color Grade (15%)'
-    ]
-  },
-  {
-    id: '04',
     slug: 'quizzard',
-    number: '04',
+    number: '01',
     name: 'QUIZZARD',
-    category: 'Technology Quiz',
+    category: 'AI / Technology Quiz',
     mode: 'Offline',
-    summary: 'Rapid-fire computational trivia, computing history, silicon architecture, operating systems, and industry dynamics.',
+    summary: 'A high-stakes AI and technology quiz competition testing computational lore, frontier silicon, artificial intelligence, and digital history in teams of two.',
     teamSize: '2 members',
-    eligibility: 'Grades VIII – XII',
-    duration: '2 Hours 30 Minutes',
-    venue: 'Auditorium Gallery',
+    eligibility: 'Grades VI – XII',
+    duration: '09:30 AM – 11:00 AM',
+    venue: 'Sr. AV Room / Big Hall, 3rd Floor',
     about: [
-      'Quizzard evaluates encyclopedic depth across computing history, hacker lore, operating systems, networking, and futuristic frontier technology.'
+      'Quizzard evaluates encyclopedic depth across computing history, hacker lore, operating systems, AI advancements, and frontier technology.',
+      'Teams of two face off across challenging multi-round trivia evaluating speed, depth, and factual precision.'
     ],
     format: [
       'Preliminary written elimination round followed by on-stage audiovisual finals with buzzer systems.'
     ],
     rules: [
-      'No electronic devices permitted during quiz sessions.',
+      'Teams must consist of exactly 2 participants from Grades VI–XII.',
+      'No electronic devices, smartphones, or smartwatches permitted during quiz sessions.',
       'Quizmaster decisions are final and binding.'
     ],
     whatToBring: [
       'Writing instruments and delegation credentials'
     ],
     judging: [
-      'Cumulative score across written prelims and stage finals'
+      'Cumulative score across written prelims and stage buzzer finals'
+    ]
+  },
+  {
+    id: '02',
+    slug: 'innovation-spirit',
+    number: '02',
+    name: 'INNOVATION SPIRIT',
+    category: 'Innovation / Hackathon',
+    mode: 'Hybrid',
+    summary: 'A hybrid innovation hackathon featuring an online preliminary round on HackerRank followed by an on-site prototype defense and refinement at school.',
+    teamSize: '2 members',
+    eligibility: 'Grades IX – XII',
+    duration: '09:30 AM – 11:00 AM',
+    venue: 'Sr. Art Room, 3rd Floor',
+    about: [
+      'Innovation Spirit is the symposium’s premier innovation and hackathon arena.',
+      'Teams develop algorithmic and computational solutions, progressing from HackerRank preliminaries to on-site physical builds and jury defense.'
+    ],
+    format: [
+      'Preliminary Round: Online algorithmic and problem-solving submission on HackerRank.',
+      'Final Round: On-site build, refinement, working demo, and jury pitch on 17 October 2026.'
+    ],
+    rules: [
+      'Teams must consist of 2 participants from Grades IX–XII.',
+      'All code and solution artifacts must be authentic to the student delegation.',
+      'Plagiarism or unauthorized boilerplate packages incur immediate disqualification.'
+    ],
+    whatToBring: [
+      'Laptops and hardware components/demonstrators',
+      'Display adapters (HDMI)'
+    ],
+    judging: [
+      'Technical Architecture & Code Quality (30%)',
+      'Problem Significance & Originality (25%)',
+      'Functional Working Demo (25%)',
+      'Clarity of Defense & Presentation (20%)'
+    ]
+  },
+  {
+    id: '03',
+    slug: 'hyperstrike-pc',
+    number: '03',
+    name: 'HYPERSTRIKE PC',
+    category: 'PC Gaming',
+    mode: 'Offline',
+    summary: 'An intense tactical PC esports tournament contested on tournament-grade campus rigs. Game title to be revealed shortly before the event.',
+    teamSize: '1 member',
+    eligibility: 'Grades VI – XII',
+    duration: '09:30 AM – 11:00 AM',
+    venue: 'ATAL Lab, 2nd Floor',
+    about: [
+      'HyperStrike PC brings together solo esports competitors on high-refresh campus gaming rigs.',
+      'Game titles and bracket rules will be announced shortly before the competition.'
+    ],
+    format: [
+      'Single-elimination knockout tournament bracket under tournament rules.'
+    ],
+    rules: [
+      'Solo participant per delegation (Grades VI–XII).',
+      'Use of unauthorized third-party software, scripts, or game modifications results in immediate disqualification.',
+      'Decisions of the match referees are final.'
+    ],
+    whatToBring: [
+      'Personal peripherals permitted (Mouse, Keyboard, Headset) subject to referee hardware inspection'
+    ],
+    judging: [
+      'Match victories and knockout bracket progression'
+    ]
+  },
+  {
+    id: '04',
+    slug: 'hyperstrike-mobile',
+    number: '04',
+    name: 'HYPERSTRIKE MOBILE',
+    category: 'Mobile Gaming',
+    mode: 'Offline',
+    summary: 'High-octane mobile gaming showdown featuring BGMI and a second mystery title to be revealed prior to competition.',
+    teamSize: '2 members',
+    eligibility: 'Grades VI – XII',
+    duration: '09:30 AM – 11:00 AM',
+    venue: 'French Room',
+    about: [
+      'HyperStrike Mobile challenges duos in tactical battle royale combat over campus network lobbies.',
+      'The event features BGMI alongside a second competitive title revealed prior to tournament kickoff.'
+    ],
+    format: [
+      'Multi-round lobby matches with cumulative placement and elimination scoring.'
+    ],
+    rules: [
+      'Teams of 2 players (Grades VI–XII).',
+      'Smartphones only. Emulators, tablets, and external triggers are strictly prohibited.',
+      'Pre-download and update all game clients prior to arrival.'
+    ],
+    whatToBring: [
+      'Smartphones with BGMI and tournament games pre-installed',
+      'Earphones/headphones and portable battery packs'
+    ],
+    judging: [
+      'Tournament points table (Placement + Elimination points)'
     ]
   },
   {
     id: '05',
-    slug: 'hyperstrike-pc',
+    slug: 'tech-crossfire',
     number: '05',
-    name: 'HYPERSTRIKE PC',
-    category: 'PC Gaming',
+    name: 'TECH CROSSFIRE',
+    category: 'Tech Debate',
     mode: 'Offline',
-    summary: 'High-stakes tactical PC esports tournament contested on dedicated high-refresh campus rigs. Game: TBA.',
-    teamSize: '5 members',
-    eligibility: 'Grades IX – XII',
-    duration: 'Full Day Tournament Bracket',
-    venue: 'Esports Arena Alpha',
+    summary: 'A technology debate competition where participants defend ideas using facts, logic and structured argument.',
+    teamSize: '1 member',
+    eligibility: 'Grades VI – XII',
+    duration: '09:30 AM – 11:00 AM',
+    venue: 'Robotics Lab',
     about: [
-      'Hyperstrike PC delivers LAN esports competition with tournament-grade peripherals and zero-latency local routing.'
+      'Tech Crossfire is the festival’s dedicated technology debate forum.',
+      'Orators debate emerging frontiers in artificial intelligence, privacy, cyberspace governance, and digital society.'
     ],
     format: [
-      'Single-elimination bracket; game title and tactical rulebook to be announced (TBA).'
+      'Constructive opening remarks, followed by rebuttals, cross-examination, and closing summaries.'
     ],
     rules: [
-      'Standard competitive rulebook; any unauthorized software tampering incurs instant disqualification.'
+      'Solo speaker per delegation (Grades VI–XII).',
+      'Arguments must be factual, logical, and strictly adhere to time limits.',
+      'Respect opposing viewpoints; zero tolerance for personal remarks or unverified plagiarism.'
     ],
     whatToBring: [
-      'Personal peripherals permitted (Mouse, Keyboard, Headset) subject to hardware inspection'
+      'Research dossiers, notes, and debate outlines'
     ],
     judging: [
-      'Match victories and bracket progression'
+      'Logical Argumentation & Factual Substance (35%)',
+      'Rebuttal Depth & Cross-Examination (30%)',
+      'Oratory, Decorum & Structure (20%)',
+      'Adherence to Time & Debate Ethics (15%)'
     ]
   },
   {
     id: '06',
-    slug: 'hyperstrike-mobile',
+    slug: 'ui-ux-rumble',
     number: '06',
-    name: 'HYPERSTRIKE MOBILE',
-    category: 'Mobile Gaming',
+    name: 'UI/UX RUMBLE',
+    category: 'Web Designing / UI-UX',
     mode: 'Offline',
-    summary: 'Tactical squad-based mobile battle royale contested on high-speed campus Wi-Fi. Game: TBA.',
-    teamSize: '4 members',
-    eligibility: 'Grades IX – XII',
-    duration: '3 Hours (Multi-Match Series)',
-    venue: 'Esports Arena Beta',
+    summary: 'A web and interface design challenge where participants create a polished UI/UX solution from a topic revealed on the spot.',
+    teamSize: '1 member',
+    eligibility: 'Grades VI – XII',
+    duration: '11:00 AM – 12:30 PM',
+    venue: 'Sr. Computer Lab, 2nd Floor',
     about: [
-      'Precision mobile gunplay, tactical zone rotations, and disciplined squad communication in custom tournament lobbies.'
+      'UI/UX Rumble is the festival’s premier web designing and user interface design sprint.',
+      'Participants craft responsive, visually striking web interfaces and prototypes in Figma responding to a live topic given on the spot.'
     ],
     format: [
-      'Multi-match lobby series; game title and point matrix to be announced (TBA).'
+      'On-site design sprint: Topic revealed at the opening bell, followed by live Figma interface design and presentation.'
     ],
     rules: [
-      'Smartphones only. Emulators, tablets, and hardware triggers are prohibited.'
+      'Solo participant per delegation (Grades VI–XII).',
+      'Figma is provided on-site. Design must be authored authentically from scratch.',
+      'Pre-built UI kits, downloaded templates, or copy-pasting existing sites is prohibited.'
     ],
     whatToBring: [
-      'Smartphones with game clients pre-updated',
-      'Wired earphones and portable power banks'
+      'Laptops configured with Figma accounts and browsers'
     ],
     judging: [
-      'Tournament points table (Placement + Kill points)'
+      'Visual Aesthetics & Hierarchy (30%)',
+      'User Experience & Usability (25%)',
+      'Responsiveness & Layout Craft (25%)',
+      'Creativity & Defense Presentation (20%)'
     ]
   },
   {
     id: '07',
-    slug: 'twisttriads',
+    slug: 'framelock',
     number: '07',
-    name: 'TWISTTRIADS',
-    category: 'Speedcubing',
+    name: 'FRAMELOCK',
+    category: 'Video Editing',
     mode: 'Offline',
-    summary: 'Official WCA-standard speedcubing triathlon spanning 2×2, 3×3, and Pyraminx disciplines with electronic StackMat timers.',
-    teamSize: '1–3 members',
+    summary: 'A fast-paced video editing sprint where editors assemble a compelling sequence from raw footage clips provided on the spot.',
+    teamSize: '1 member',
     eligibility: 'Grades VI – XII',
-    duration: '2 Hours',
-    venue: 'Mathematics & Spatial Arena',
+    duration: '11:00 AM – 12:30 PM',
+    venue: 'ATAL Lab, 2nd Floor',
     about: [
-      'Twisttriads gathers the fastest speedcubers to battle across three classic twisty puzzle formats with certified StackMat timers.'
+      'FrameLock tests editorial rhythm, sound design, visual pacing, and narrative composition.',
+      'Participants receive raw footage clips on the spot and must produce a finished video edit within the allotted time.'
     ],
     format: [
-      'Round 1: Average of 5 (Ao5) on 3×3×3.',
-      'Round 2: 2×2×2 and Pyraminx speed heats.',
-      'Finals: Head-to-head elimination bracket for top seeds.'
+      'Footage clips distributed on-site; participants edit, color-grade, and export within 90 minutes using Filmora or CapCut.'
     ],
     rules: [
-      'World Cube Association (WCA) guidelines strictly enforced.',
-      '15-second inspection time limit with standard verbal warnings.'
+      'Solo editor per delegation (Grades VI–XII).',
+      'Video clips provided on the spot must form the primary basis of the edit.',
+      'Permitted software: Filmora, CapCut, Premiere Pro, or DaVinci Resolve.',
+      'Pre-edited project templates or automated AI generators are prohibited.'
     ],
     whatToBring: [
-      'Tournament-legal speedcubes (2×2, 3×3, Pyraminx)'
+      'Laptop pre-installed with editing software (Filmora, CapCut, etc.) and headphones'
     ],
     judging: [
-      'Official average solve times and podium placement'
+      'Storytelling & Narrative Rhythm (35%)',
+      'Pacing, Cuts & Transitions (25%)',
+      'Audio Sync & Sound Design (20%)',
+      'Color Grading & Visual Polish (20%)'
     ]
   },
   {
     id: '08',
-    slug: 'flying-machine',
+    slug: 'twisttriads',
     number: '08',
-    name: 'FLYING MACHINE',
-    category: 'Engineering / Water Rocket',
+    name: 'TWISTTRIADS',
+    category: 'Speedcubing',
     mode: 'Offline',
-    summary: 'Aerodynamic staging, pressure calculation, and precision flight time challenge for custom-built water rockets. Rules: TBA.',
-    teamSize: '2–3 members',
-    eligibility: 'Grades VIII – XII',
-    duration: '2 Hours 30 Minutes',
-    venue: 'Main Athletic Grounds / Open Launch Range',
+    summary: 'Speedcubing triathlon contested across 2×2, 3×3, and Pyramid/Pyraminx cubes under standard solve protocols.',
+    teamSize: '1 member',
+    eligibility: 'Grades VI – XII',
+    duration: '11:00 AM – 12:30 PM',
+    venue: 'Sr. AV Room / Big Hall',
     about: [
-      'Flying Machine is the symposium’s dedicated water rocket aerospace challenge.',
-      'Teams engineer single or multi-stage pressurized water rockets to achieve maximum apogee and sustained air-time.'
+      'TwistTriads brings speedcubers together across three iconic twister puzzles.',
+      'Solvers compete in rapid rounds featuring 2×2, 3×3, and Pyramid/Pyraminx puzzles.'
     ],
     format: [
-      'Two official launch attempts per delegation under standardized pressure limits. Rules: TBA.'
+      'Sequential solve heats for 2×2, 3×3, and Pyraminx with official timing.'
     ],
     rules: [
-      'Rockets constructed strictly from non-metallic lightweight materials (PET bottles, corrugated plastic fins).',
-      'Propulsion medium limited strictly to water and compressed air.',
-      'Technical launch parameters and safety check rules: TBA.'
+      'Solo speedcuber per delegation (Grades VI–XII).',
+      'WCA-standard inspection limits (15 seconds) enforced before each solve attempt.',
+      'Cubes must be standard competition puzzles without electronic aids.'
     ],
     whatToBring: [
-      'Custom water rockets',
-      'Spare fins, nose cones, and field assembly kits'
+      'Competition-ready 2×2, 3×3, and Pyraminx cubes'
     ],
     judging: [
-      'Flight Hang-Time and Apogee (60%)',
-      'Aerodynamic Stability & Structural Integrity (40%)'
+      'Cumulative solve times across all three cube disciplines'
     ]
   },
   {
@@ -278,124 +289,126 @@ export const EVENTS: FestivalEvent[] = [
     slug: 'nocturne',
     number: '09',
     name: 'NOCTURNE',
-    subtitle: 'FOLLOW THE CLUE. BREAK THE PATTERN.',
-    category: 'Cyber Hunt / Cryptic Hunt',
+    subtitle: 'FOLLOW THE CLUE. FIND THE NEXT.',
+    category: 'Cryptic Hunt / Online Hunt',
     mode: 'Online',
-    summary: 'A layered online cryptic and cyber hunt featuring research, logic, hidden clues and selected CTF-style challenges including cryptography and reverse engineering.',
-    teamSize: '1–3 members',
-    eligibility: 'Open to Grades VIII – XII',
-    duration: '24 Continuous Hours',
-    venue: 'Online Platform (Discord & Dedicated Terminal)',
+    summary: 'A layered online hunt of clues, connections, research and lateral thinking.',
+    teamSize: '2 members',
+    eligibility: 'Grades VI – XII',
+    duration: 'Online Schedule',
+    venue: 'Online Platform',
     about: [
-      'Nocturne is an online cyber and cryptic hunt built around layered clues, internet research, hidden information, logic and puzzle-solving, with selected CTF-style elements such as cryptography, reverse engineering and other cybersecurity challenges woven into the hunt.',
-      'Running continuously for 24 hours, delegations navigate esoteric clues, audio spectrograms, steganography, digital forensics, and lateral research problems.'
+      'An online cryptic hunt built around layered clues, hidden connections, research, logic and lateral thinking. Participants progress through a sequence of puzzles by interpreting clues, discovering links and uncovering the next stage of the hunt.',
+      'Teams unravel a progression of multi-layered mysteries, combining open-web research, lateral deduction, and deductive problem solving.'
     ],
     format: [
-      'Continuous 24-hour live scoreboard hunt featuring progressive puzzle tiers and selected CTF security challenges.'
+      'Sequential online puzzle progression with real-time leaderboard scoring.'
     ],
     rules: [
-      'Sharing flags, solutions, or clues between delegations results in immediate disqualification.',
-      'Attacking or brute-forcing challenge infrastructure is strictly forbidden.'
+      'Teams must consist of 2 participants from Grades VI–XII.',
+      'Allowed tools: Web browsers, search engines, analytical tools, logic scripts, and digital decoders.',
+      'Sharing clues, colluding across school delegations, or attempting to compromise the host platform is strictly prohibited.'
     ],
     whatToBring: [
-      'Computer with stable internet connection, cipher decoders, and cryptanalysis toolkits'
+      'Laptop or workstation with a modern browser and stable internet connection'
     ],
     judging: [
-      'Dynamic point scoreboard with timestamps for tiebreakers'
+      'Leaderboard score and timestamp tiebreakers'
     ],
     isDarkTheme: true
   },
   {
     id: '10',
-    slug: 'robo-soccer',
+    slug: 'manoeuvre',
     number: '10',
-    name: 'ROBO SOCCER',
-    category: 'Robotics / Robo Soccer',
+    name: 'MANOEUVRE',
+    category: 'Robotics / Precision Task',
     mode: 'Offline',
-    summary: 'Fast-paced, head-to-head teleoperated robotic soccer tournament held within an enclosed pitch. Exact technical rules: TBA.',
-    teamSize: '2–4 members',
-    eligibility: 'Grades VIII – XII',
-    duration: 'Tournament Knockout (Afternoon)',
-    venue: 'Robotics Turf Arena',
+    summary: 'A precision robotics challenge requiring teams to control a custom-built bot to grip, align and place objects accurately.',
+    teamSize: '1–3 members',
+    eligibility: 'Grades VI – XII',
+    duration: '09:30 AM – 11:00 AM',
+    venue: 'Basketball Court',
     about: [
-      'Robo Soccer pits agile student-built rovers against one another in a tactical football showdown.',
-      'Delegations must engineer bots with responsive steering, chassis stability, and ball retention mechanisms.'
+      'Manoeuvre is a precision engineering and teleoperation robotics showdown.',
+      'Teams must pilot a manually controlled custom bot that grips designated shapes and seats them into matching board grooves within time limits.'
     ],
     format: [
-      'Group stage fixtures followed by single-elimination knockouts. Technical specifications: TBA.'
+      'Timed arena run: Gripping shapes, navigating path constraints, and fitting pieces into target grooves.'
     ],
     rules: [
-      'Maximum bot dimensions and weight limits specified in tournament briefing (TBA).',
-      'Ball enclosing mechanisms that prevent opponent challenge are prohibited.'
+      'Teams of 1–3 members from Grades VI–XII.',
+      'Bot must be manually controlled via wired or wireless RF/Bluetooth link.',
+      'Bot dimensions and power limitations must satisfy marshal pre-check.'
     ],
     whatToBring: [
-      'Custom soccer bots and calibrated RF controllers',
-      'Battery packs and repair toolkits'
+      'Custom gripper robot, controllers, spare battery packs, and repair kit'
     ],
     judging: [
-      'Goals scored and tournament match progression'
+      'Number of shapes placed accurately and elapsed course run time'
     ]
   },
   {
     id: '11',
-    slug: 'huddle-mania',
+    slug: 'robo-soccer',
     number: '11',
-    name: 'HUDDLE MANIA',
-    category: 'Robotics / Engineering Challenge',
+    name: 'ROBO SOCCER',
+    category: 'Robotics',
     mode: 'Offline',
-    summary: 'High-torque terrestrial obstacle robotics tackling multi-surface bottlenecks, rough terrain, and agility traps. Rules: TBA.',
-    teamSize: '2–3 members',
-    eligibility: 'Grades VIII – XII',
-    duration: '3 Hours',
-    venue: 'Robotics Tactical Arena Alpha',
+    summary: 'Fast-paced robotic soccer championship where teams compete in head-to-head matches using custom-controlled bots.',
+    teamSize: '1–3 members',
+    eligibility: 'Grades VI – XII',
+    duration: '11:30 AM – 12:30 PM',
+    venue: 'Basketball Court',
     about: [
-      'Huddle Mania challenges roboticists to construct a rugged terrestrial mobile rover capable of maneuvering across chicanes, elevated ramps, friction traps, and physical bottlenecks.'
+      'Robo Soccer pits agile, high-torque student rovers against each other in an enclosed pitch.',
+      'Teams must balance propulsion, ball handling, and defense in rapid-fire soccer rounds.'
     ],
     format: [
-      'Timed runs through an engineered course with designated checkpoint gates. Rules: TBA.'
+      'Group fixtures followed by knockout brackets in the arena.'
     ],
     rules: [
-      'Chassis dimensions and nominal power limits specified in technical briefing (TBA).'
+      'Teams of 1–3 members (Grades VI–XII).',
+      'Bots must be controlled remotely. Entrapping or damaging opponent bots is prohibited.',
+      'Standard soccer scoring and overtime penalty shootouts apply.'
     ],
     whatToBring: [
-      'Robotics chassis, controllers, and pit crew toolkits'
+      'Soccer bots, radio transmitters, charged battery packs, and pit tools'
     ],
     judging: [
-      'Course completion time and checkpoint score'
+      'Goals scored and tournament bracket victories'
     ]
   },
   {
     id: '12',
-    slug: 'tech-crossfire',
+    slug: 'flying-machine',
     number: '12',
-    name: 'TECH CROSSFIRE',
-    category: 'Tech MUN / Digital Policy',
+    name: 'FLYING MACHINE',
+    category: 'Water Rocket',
     mode: 'Offline',
-    summary: 'A technology and digital-policy forum exploring AI governance, cybersecurity, privacy, digital rights and emerging technologies.',
-    teamSize: '1–2 delegates',
-    eligibility: 'Grades IX – XII',
-    duration: '3 Hours 30 Minutes',
-    venue: 'Committee Chamber / Conference Hall',
+    summary: 'Single-stage pressurized water rocket aerospace challenge engineered for maximum distance, trajectory stability, and launch accuracy.',
+    teamSize: '1–3 members',
+    eligibility: 'Grades VI – XII',
+    duration: 'Playground Schedule',
+    venue: 'Playground',
     about: [
-      'Tech Crossfire is an inter-school technology parliament and digital-policy symposium.',
-      'Delegates represent global institutions, nation-states, and industry bodies to debate AI ethics, algorithmic accountability, data privacy, and cyber sovereignty.'
+      'Flying Machine is Cyber Symphony’s dedicated water rocket aerospace tournament.',
+      'Teams design and launch a single-stage water rocket for maximum distance and trajectory accuracy.'
     ],
     format: [
-      'Opening statements followed by moderated caucus debate, crisis directive introduction, and policy resolution draft presentation.'
+      'Standardized pressurized launch attempts on the outdoor sports grounds.'
     ],
     rules: [
-      'Standard parliamentary and MUN committee rules apply.',
-      'Delegates must defend positions grounded in technological feasibility, international policy, and human rights frameworks.'
+      'Teams of 1–3 members (Grades VI–XII).',
+      'Specifically a single-stage water rocket competition (not aircraft or drones).',
+      'Propulsion strictly limited to water and compressed air under marshal safety limits.',
+      'Rockets must use non-metal lightweight fuselages and stable fin assemblies.'
     ],
     whatToBring: [
-      'Laptops/tablets for research and resolution drafting',
-      'Policy background dossiers and credentials'
+      'Water rocket models, launch adapters, spare fins, and assembly tools'
     ],
     judging: [
-      'Policy Depth & Technological Analysis (35%)',
-      'Argumentation & Rebuttal (30%)',
-      'Diplomatic Collaboration & Resolution Craft (20%)',
-      'Oratory & Decorum (15%)'
+      'Launch distance, trajectory accuracy, and structural flight stability'
     ]
   }
 ];
@@ -404,10 +417,22 @@ export const getEventBySlug = (slug: string): FestivalEvent | undefined => {
   return EVENTS.find(
     (e) =>
       e.slug === slug ||
+      (slug === 'quizzard' && e.slug === 'quizzard') ||
+      (slug === 'innovation-spirit' && e.slug === 'innovation-spirit') ||
+      (slug === 'innovation-sprint' && e.slug === 'innovation-spirit') ||
+      (slug === 'hyperstrike-pc' && e.slug === 'hyperstrike-pc') ||
+      (slug === 'hyperstrike-mobile' && e.slug === 'hyperstrike-mobile') ||
+      (slug === 'tech-crossfire' && e.slug === 'tech-crossfire') ||
       (slug === 'ui-ux-rumble' && e.slug === 'ui-ux-rumble') ||
       (slug === 'web-forge' && e.slug === 'ui-ux-rumble') ||
       (slug === 'webforge' && e.slug === 'ui-ux-rumble') ||
+      (slug === 'framelock' && e.slug === 'framelock') ||
+      (slug === 'twisttriads' && e.slug === 'twisttriads') ||
+      (slug === 'nocturne' && e.slug === 'nocturne') ||
       (slug === 'nocturne-3301' && e.slug === 'nocturne') ||
-      (slug === 'nocturne' && e.slug === 'nocturne')
+      (slug === 'manoeuvre' && e.slug === 'manoeuvre') ||
+      (slug === 'huddle-mania' && e.slug === 'manoeuvre') ||
+      (slug === 'robo-soccer' && e.slug === 'robo-soccer') ||
+      (slug === 'flying-machine' && e.slug === 'flying-machine')
   );
 };

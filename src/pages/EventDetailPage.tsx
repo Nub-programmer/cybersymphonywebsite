@@ -123,16 +123,16 @@ export const EventDetailPage: React.FC<EventDetailPageProps> = ({
 
             {/* Registration Anchor CTA */}
             <div className="pt-6 border-t border-current/15">
-              <button
-                onClick={() => onNavigate('/register')}
-                className={`w-full py-4 px-6 text-xs font-mono uppercase tracking-widest font-semibold text-center transition-colors cursor-pointer ${
+              <a
+                href="/register"
+                className={`block w-full py-4 px-6 text-xs font-mono uppercase tracking-widest font-semibold text-center transition-colors cursor-pointer ${
                   isDark
                     ? 'bg-[#FAF9F5] text-[#19201B] hover:bg-[#1BBBE8]'
                     : 'bg-[#151515] text-[#FAF9F5] hover:bg-[#325E7D]'
                 }`}
               >
                 REGISTER DELEGATION FOR THIS EVENT ↗
-              </button>
+              </a>
             </div>
           </div>
 

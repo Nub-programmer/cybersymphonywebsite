@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/register",
+      "destination": "https://docs.google.com/forms/d/e/1FAIpQLSfcYhw3x6rOoA9qADShNm5Gx2H3VRuA6OcrvcpdV0zzIXfOQQ/viewform",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -26,10 +26,10 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
     'MOBILE GAMING',
     'SPEEDCUBING',
     'WATER ROCKET',
-    'CYBER HUNT',
+    'CRYPTIC HUNT',
     'ROBO SOCCER',
-    'OBSTACLE ROBOTICS',
-    'DIGITAL POLICY',
+    'PRECISION ROBOTICS',
+    'TECH DEBATE',
   ];
 
   useEffect(() => {
@@ -209,7 +209,7 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
             </div>
 
             <p className="max-w-[var(--body-max-width)] text-sm sm:text-base text-[#575757] leading-relaxed font-light mb-4">
-              Curated across ideation sprints, web designing, video editing, robotics, gaming, water rockets, speedcubing, digital policy debate, and online cyber hunts.
+              Curated across innovation hackathons, web designing, video editing, robotics, gaming, water rockets, speedcubing, tech debate, and online cryptic hunts.
             </p>
           </div>
         </div>

@@ -115,16 +115,16 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onRegisterClick, hasEntered 
           <span>JAGRAN PUBLIC SCHOOL, NOIDA</span>
         </div>
 
-        <button
-          ref={buttonRef}
-          onClick={onRegisterClick}
+        <a
+          ref={buttonRef as unknown as React.Ref<HTMLAnchorElement>}
+          href="/register"
           className="group inline-flex items-center gap-3 text-sm sm:text-base font-display font-bold uppercase tracking-wider text-[#151515] hover:text-[#325E7D] transition-colors cursor-pointer border-b-2 border-current pb-1"
         >
           <span>REGISTER YOUR SCHOOL</span>
           <span className="transform transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">
             ↗
           </span>
-        </button>
+        </a>
       </div>
     </section>
   );

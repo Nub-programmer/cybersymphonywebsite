@@ -71,12 +71,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isDarkTheme = false 
           {/* Registration & Inquiries */}
           <div className="md:col-span-3 flex flex-col gap-3 font-mono text-xs uppercase tracking-wider">
             <span className="font-semibold text-current mb-1">COORDINATION</span>
-            <button
-              onClick={() => onNavigate('/register')}
+            <a
+              href="/register"
               className="text-left font-bold text-[#325E7D] hover:underline cursor-pointer"
             >
               Register School Delegation ↗
-            </button>
+            </a>
             <a
               href={`mailto:${FESTIVAL_INFO.email}`}
               className="opacity-70 hover:opacity-100 transition-opacity"

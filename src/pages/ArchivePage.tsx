@@ -125,12 +125,12 @@ export const ArchivePage: React.FC<ArchivePageProps> = ({ onNavigate }) => {
           <span className="font-mono text-xs text-[#575757] uppercase tracking-wider">
             JOIN US FOR CYBER SYMPHONY 2026
           </span>
-          <button
-            onClick={() => onNavigate('/register')}
+          <a
+            href="/register"
             className="btn-tactile font-mono text-xs uppercase tracking-widest font-semibold bg-[#151515] text-[#FAF9F5] px-6 py-3.5 hover:bg-[#1C4463] transition-colors cursor-pointer w-full sm:w-auto text-center"
           >
             REGISTER SCHOOL DELEGATION ↗
-          </button>
+          </a>
         </div>
       </div>
     </div>
