@@ -26,8 +26,8 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onRegisterClick, hasEntered 
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      // DESKTOP: ONE TIMELINE FOR FINAL CTA
-      mm.add('(min-width: 768px)', () => {
+      // DESKTOP: Timeline (>= 769px)
+      mm.add('(min-width: 769px)', () => {
         const masterTl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -61,6 +61,26 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onRegisterClick, hasEntered 
           0.5
         );
       });
+
+      // MOBILE: Lightweight entrance (<= 768px)
+      mm.add('(max-width: 768px)', () => {
+        gsap.fromTo(
+          [headlineRef.current, ribbonWrapperRef.current, buttonRef.current],
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -69,7 +89,7 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onRegisterClick, hasEntered 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-between px-[5vw] pt-20 pb-12 bg-[#FAF9F5] text-[#151515] select-none border-t border-[#151515]/8 overflow-hidden"
+      className="relative w-full min-h-[85svh] md:min-h-screen flex flex-col justify-between px-[var(--gutter-site)] pt-16 sm:pt-20 pb-12 bg-[#FAF9F5] text-[#151515] select-none border-t border-[#151515]/8 overflow-hidden"
     >
       {/* Top Quiet Anchor */}
       <div className="w-full flex justify-between items-center font-mono text-xs text-[#575757] tracking-widest uppercase z-10">
@@ -78,11 +98,11 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onRegisterClick, hasEntered 
       </div>
 
       {/* Centerpiece: Huge BRING YOUR SCHOOL */}
-      <div className="my-auto max-w-5xl z-10">
+      <div className="my-auto max-w-5xl z-10 py-8">
         <h2
           ref={headlineRef}
           className="font-display font-extrabold uppercase tracking-[-0.035em] text-[#151515] leading-[0.92]"
-          style={{ fontSize: 'clamp(2.75rem, 9.6vw, 9.8rem)' }}
+          style={{ fontSize: 'clamp(2.5rem, 9.6vw, 9.8rem)' }}
         >
           BRING
           <br />
@@ -95,7 +115,7 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onRegisterClick, hasEntered 
       {/* FESTIVAL RIBBON LAYER: crosses beneath metadata and settles along bottom */}
       <div
         ref={ribbonWrapperRef}
-        className="w-[120%] -ml-[10%] my-6 z-10"
+        className="w-full md:w-[120%] md:-ml-[10%] my-6 z-10 overflow-hidden"
       >
         <FestivalRibbon
           bgColor="bg-[#1C4463]"
@@ -118,7 +138,7 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onRegisterClick, hasEntered 
         <a
           ref={buttonRef as unknown as React.Ref<HTMLAnchorElement>}
           href="/register"
-          className="group inline-flex items-center gap-3 text-sm sm:text-base font-display font-bold uppercase tracking-wider text-[#151515] hover:text-[#325E7D] transition-colors cursor-pointer border-b-2 border-current pb-1"
+          className="group inline-flex items-center gap-3 text-sm sm:text-base font-display font-bold uppercase tracking-wider text-[#151515] hover:text-[#325E7D] transition-colors cursor-pointer border-b-2 border-current pb-1 min-h-[44px] sm:min-h-0"
         >
           <span>REGISTER YOUR SCHOOL</span>
           <span className="transform transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">

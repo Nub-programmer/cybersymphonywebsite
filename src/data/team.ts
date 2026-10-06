@@ -1,10 +1,3 @@
-export interface TeamMember {
-  id: string;
-  role: string;
-  name: string;
-  department: string;
-}
-
 export interface FacultyMember {
   id: string;
   name: string;
@@ -12,92 +5,137 @@ export interface FacultyMember {
   department?: string;
 }
 
+export interface ITDepartmentMember {
+  id: string;
+  name: string;
+  role?: string;
+}
+
+export interface SocietyLeader {
+  role: string;
+  status: string;
+}
+
+export interface EventInCharge {
+  eventName: string;
+  eventSlug?: string;
+  heads: string[];
+}
+
+export interface CommunityHead {
+  name: string;
+  role: string;
+}
+
 export const TEACHER_IN_CHARGES: FacultyMember[] = [
   {
     id: 'tic-1',
-    name: 'To Be Announced',
+    name: 'Ms. Vineeta Somni',
     role: 'Teacher In-Charge',
-    department: 'Department of Computer Science & Technology',
   },
   {
     id: 'tic-2',
-    name: 'To Be Announced',
-    role: 'Faculty Coordinator',
-    department: 'Department of Science & Innovation',
+    name: 'Mr. Sanjeev Kumar',
+    role: 'Teacher In-Charge',
+  },
+  {
+    id: 'tic-3',
+    name: 'Mr. Deepak Chauhan',
+    role: 'Teacher In-Charge, Robotics',
   },
 ];
 
-export const SYMPHONISERS_LEADERSHIP: TeamMember[] = [
+export const IT_DEPARTMENT_MEMBERS: ITDepartmentMember[] = [
+  { id: 'it-1', name: 'Ms. Akriti Saxena' },
+  { id: 'it-2', name: 'Ms. Anamika Srivastava' },
+  { id: 'it-3', name: 'Mr. Sandeep Kumar' },
+  { id: 'it-4', name: 'Ms. Premlata Negi' },
+  { id: 'it-5', name: 'Mr. Mahak Singh' },
+];
+
+export const SOCIETY_LEADERSHIP: SocietyLeader[] = [
   {
-    id: 'president',
-    role: 'PRESIDENT',
-    name: 'NAME TBA',
-    department: 'Executive Council',
+    role: 'President',
+    status: 'TO BE DECIDED',
   },
   {
-    id: 'vice-president',
-    role: 'VICE PRESIDENT',
-    name: 'NAME TBA',
-    department: 'Executive Council',
-  },
-  {
-    id: 'head-tech',
-    role: 'HEAD OF TECHNOLOGY',
-    name: 'NAME TBA',
-    department: 'Systems & Infrastructure',
-  },
-  {
-    id: 'head-cyber',
-    role: 'HEAD OF CYBERSECURITY',
-    name: 'NAME TBA',
-    department: 'Cyber Operations',
-  },
-  {
-    id: 'head-robotics',
-    role: 'HEAD OF ROBOTICS',
-    name: 'NAME TBA',
-    department: 'Hardware & Mechatronics',
-  },
-  {
-    id: 'head-development',
-    role: 'HEAD OF DEVELOPMENT',
-    name: 'NAME TBA',
-    department: 'Software Engineering',
-  },
-  {
-    id: 'head-design',
-    role: 'HEAD OF DESIGN',
-    name: 'NAME TBA',
-    department: 'Creative & Visual Identity',
-  },
-  {
-    id: 'head-events-1',
-    role: 'HEAD OF EVENTS — I',
-    name: 'NAME TBA',
-    department: 'Event Operations',
-  },
-  {
-    id: 'head-events-2',
-    role: 'HEAD OF EVENTS — II',
-    name: 'NAME TBA',
-    department: 'Event Operations',
-  },
-  {
-    id: 'head-media',
-    role: 'HEAD OF MEDIA',
-    name: 'NAME TBA',
-    department: 'Documentation & Film',
-  },
-  {
-    id: 'head-operations',
-    role: 'HEAD OF OPERATIONS',
-    name: 'NAME TBA',
-    department: 'Logistics & Safety',
-  },
-  {
-    id: 'head-outreach',
-    role: 'HEAD OF OUTREACH',
-    name: 'NAME TBA',
-    department: 'Institutional Relations',
+    role: 'Vice President',
+    status: 'TO BE DECIDED',
   },
 ];
+
+export const EVENT_HEADS: EventInCharge[] = [
+  {
+    eventName: 'Innovation Spirit',
+    eventSlug: 'innovation-spirit',
+    heads: ['Atharv Negi', 'Akshat Parmar'],
+  },
+  {
+    eventName: 'Nocturne',
+    eventSlug: 'nocturne',
+    heads: ['Atharv Negi', 'Akshat Parmar'],
+  },
+  {
+    eventName: 'HyperStrike PC',
+    eventSlug: 'hyperstrike-pc',
+    heads: ['Bhavishya', 'Arnav Bisht'],
+  },
+  {
+    eventName: 'Tech Crossfire',
+    eventSlug: 'tech-crossfire',
+    heads: ['Pratik Srivastava', 'Ishmeet Kaur Kalsi', 'Vaishnavi Bharthwal'],
+  },
+  {
+    eventName: 'HyperStrike Mobile',
+    eventSlug: 'hyperstrike-mobile',
+    heads: ['Sharansh Gautam', 'Shivam Jha'],
+  },
+  {
+    eventName: 'Robotics Events',
+    heads: [
+      'Swapnta',
+      'Pradhumaya Singh',
+      'Arnav Tripathi',
+      'Ishan Sachan',
+      'Md Aaman Khair',
+      'Arth Sharma',
+    ],
+  },
+  {
+    eventName: 'Quizzard',
+    eventSlug: 'quizzard',
+    heads: ['Anvi Verma', 'Varnika Shukla'],
+  },
+  {
+    eventName: 'UI/UX Rumble',
+    eventSlug: 'ui-ux-rumble',
+    heads: ['Shourya Srivastava', 'Shrinidhi Jha'],
+  },
+  {
+    eventName: 'FrameLock',
+    eventSlug: 'framelock',
+    heads: ['Prabhav Singh', 'Arnav Verma'],
+  },
+  {
+    eventName: 'Twist Triads',
+    eventSlug: 'twisttriads',
+    heads: ['Riddhi', 'Daksh Chauhan'],
+  },
+];
+
+export const SOCIAL_COMMUNITY_HEADS: CommunityHead[] = [
+  {
+    name: 'Atharv Negi',
+    role: 'Social & Community Head',
+  },
+  {
+    name: 'Akshat Parmar',
+    role: 'Social & Community Head',
+  },
+];
+
+export const COMMUNITY_LINKS = {
+  discord: 'https://discord.gg/7zedz2wyG7',
+  whatsapp: 'https://chat.whatsapp.com/Ivu3yePs0Kd9h3VIQSQAUA',
+  email: 'thecybersymphony@gmail.com',
+};

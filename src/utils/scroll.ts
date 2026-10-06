@@ -16,6 +16,15 @@ export function initLenis(): Lenis | null {
     return null;
   }
 
+  // Disable Lenis on mobile or touch devices to prioritize native, glitch-free scrolling
+  const isMobileOrTouch =
+    window.matchMedia('(max-width: 768px)').matches ||
+    window.matchMedia('(pointer: coarse)').matches;
+
+  if (isMobileOrTouch) {
+    return null;
+  }
+
   if (lenisInstance) {
     return lenisInstance;
   }

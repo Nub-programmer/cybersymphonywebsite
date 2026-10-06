@@ -41,8 +41,13 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      // DESKTOP: ONE MASTER PINNED TIMELINE FOR DISCIPLINES → 12 EVENTS
-      mm.add('(min-width: 768px)', () => {
+      // DESKTOP: Master pinned timeline (>= 769px)
+      mm.add('(min-width: 769px)', () => {
+        // Initial setup
+        gsap.set(disciplinesStageRef.current, { opacity: 0, pointerEvents: 'none' });
+        gsap.set(eventsStageRef.current, { opacity: 0, pointerEvents: 'none' });
+        gsap.set(ribbonWrapperRef.current, { yPercent: 40, rotate: 0, opacity: 0.9 });
+
         const masterTl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -54,11 +59,6 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
             invalidateOnRefresh: true,
           },
         });
-
-        // Initial setup
-        gsap.set(disciplinesStageRef.current, { opacity: 0, pointerEvents: 'none' });
-        gsap.set(eventsStageRef.current, { opacity: 0, pointerEvents: 'none' });
-        gsap.set(ribbonWrapperRef.current, { yPercent: 40, rotate: 0, opacity: 0.9 });
 
         // 0–28%: Statement stage active. Ribbon sits near bottom.
         masterTl.to(
@@ -117,6 +117,30 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
           0.9
         );
       });
+
+      // MOBILE: Natural flow entrance (<= 768px)
+      mm.add('(max-width: 768px)', () => {
+        gsap.set(
+          [statementStageRef.current, disciplinesStageRef.current, eventsStageRef.current],
+          { opacity: 1, pointerEvents: 'auto', clearProps: 'transform' }
+        );
+
+        gsap.fromTo(
+          sectionRef.current,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -125,13 +149,13 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-[#FAF9F5] text-[#151515] select-none overflow-hidden flex flex-col justify-center px-[var(--gutter-site)]"
+      className="relative w-full min-h-[90svh] md:min-h-screen bg-[#FAF9F5] text-[#151515] select-none overflow-hidden flex flex-col justify-center px-[var(--gutter-site)] py-16 md:py-0"
     >
-      <div className="relative w-full max-w-[var(--content-max-width)] mx-auto min-h-[80vh] flex flex-col justify-center">
+      <div className="relative w-full max-w-[var(--content-max-width)] mx-auto min-h-0 md:min-h-[80vh] flex flex-col justify-center gap-16 md:gap-0">
         {/* STAGE 1: FESTIVAL STATEMENT */}
         <div
           ref={statementStageRef}
-          className="w-full flex flex-col justify-between py-12 md:py-16"
+          className="w-full flex flex-col justify-between py-6 md:py-16"
         >
           <div className="max-w-5xl">
             <span className="font-mono text-xs tracking-widest text-[#575757] uppercase block mb-4">
@@ -140,7 +164,7 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
             <h2
               className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight uppercase leading-[0.96] text-[#151515]"
               style={{
-                fontSize: 'clamp(2.5rem, 6.8vw, 6.8rem)',
+                fontSize: 'clamp(2.25rem, 6.8vw, 6.8rem)',
               }}
             >
               BEYOND THE SCREEN.
@@ -152,8 +176,8 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
             </h2>
           </div>
 
-          <div className="mt-16 sm:mt-24 md:mt-32 max-w-[var(--body-max-width)] md:ml-auto md:mr-12 flex flex-col gap-3 text-left">
-            <p className="font-body text-lg sm:text-xl md:text-2xl text-[#151515] leading-relaxed font-light">
+          <div className="mt-10 sm:mt-16 md:mt-32 max-w-[var(--body-max-width)] md:ml-auto md:mr-12 flex flex-col gap-3 text-left">
+            <p className="font-body text-base sm:text-xl md:text-2xl text-[#151515] leading-relaxed font-light">
               Cyber Symphony is the inter-school technology festival of Jagran Public School, Noida.
             </p>
             <p className="font-mono text-xs sm:text-sm tracking-widest text-[#575757] uppercase">
@@ -165,22 +189,22 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
         {/* STAGE 2: DISCIPLINES MATRIX */}
         <div
           ref={disciplinesStageRef}
-          className="relative md:absolute md:inset-0 flex flex-col justify-center py-12 md:py-0 md:opacity-0"
+          className="relative md:absolute md:inset-0 flex flex-col justify-center py-6 md:py-0 md:opacity-0"
         >
           <div className="max-w-5xl">
-            <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-[#575757] block mb-8">
+            <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-[#575757] block mb-6 md:mb-8">
               COMPETITIVE SPECTRUM
             </span>
 
-            <div className="flex flex-wrap gap-x-6 sm:gap-x-10 md:gap-x-14 gap-y-4 sm:gap-y-6">
+            <div className="flex flex-wrap gap-x-4 sm:gap-x-10 md:gap-x-14 gap-y-3 sm:gap-y-6">
               {disciplines.map((item, idx) => (
                 <span
                   key={item}
-                  className="discipline-tag font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#151515] uppercase transition-colors hover:text-[#1C4463] select-none"
+                  className="discipline-tag font-display text-xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#151515] uppercase transition-colors hover:text-[#1C4463] select-none"
                 >
                   {item}
                   {idx < disciplines.length - 1 && (
-                    <span className="ml-6 sm:ml-10 md:ml-14 font-light text-[#151515]/20 select-none">
+                    <span className="ml-4 sm:ml-10 md:ml-14 font-light text-[#151515]/20 select-none">
                       /
                     </span>
                   )}
@@ -190,35 +214,35 @@ export const FestivalStatement: React.FC<FestivalStatementProps> = ({ hasEntered
           </div>
         </div>
 
-        {/* STAGE 3: EVENTS REVEAL (DERIVED FROM EVENTS.length) */}
+        {/* STAGE 3: EVENTS REVEAL */}
         <div
           ref={eventsStageRef}
-          className="relative md:absolute md:inset-0 flex flex-col justify-center py-12 md:py-0 md:opacity-0"
+          className="relative md:absolute md:inset-0 flex flex-col justify-center py-6 md:py-0 md:opacity-0"
         >
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-10 border-b border-[#151515]/10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 pb-8 md:pb-10 border-b border-[#151515]/10">
             <div className="flex items-baseline gap-4 sm:gap-8">
               <span
                 className="font-display font-extrabold text-[#151515] leading-none tracking-tight"
-                style={{ fontSize: 'clamp(4.5rem, 13vw, 12rem)' }}
+                style={{ fontSize: 'clamp(3.5rem, 13vw, 12rem)' }}
               >
                 {EVENTS.length}
               </span>
-              <span className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#1C4463] uppercase">
+              <span className="font-display text-2xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#1C4463] uppercase">
                 EVENTS
               </span>
             </div>
 
-            <p className="max-w-[var(--body-max-width)] text-sm sm:text-base text-[#575757] leading-relaxed font-light mb-4">
+            <p className="max-w-[var(--body-max-width)] text-sm sm:text-base text-[#575757] leading-relaxed font-light">
               Curated across innovation hackathons, web designing, video editing, robotics, gaming, water rockets, speedcubing, tech debate, and online cryptic hunts.
             </p>
           </div>
         </div>
       </div>
 
-      {/* AMBIENT FESTIVAL RIBBON LAYER */}
+      {/* AMBIENT FESTIVAL RIBBON LAYER (DESKTOP ONLY) */}
       <div
         ref={ribbonWrapperRef}
-        className="absolute bottom-10 left-[-15%] w-[130%] z-20 pointer-events-none"
+        className="hidden md:block absolute bottom-10 left-[-15%] w-[130%] z-20 pointer-events-none"
       >
         <FestivalRibbon
           bgColor="bg-[#1C4463]"

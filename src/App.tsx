@@ -116,7 +116,7 @@ export default function App() {
     if (currentPath === '/brochure') {
       return <BrochurePage onNavigate={navigateTo} />;
     }
-    if (currentPath === '/the-symphonisers') {
+    if (currentPath === '/thesymphonisers' || currentPath === '/the-symphonisers') {
       return <TheSymphonisersPage onNavigate={navigateTo} />;
     }
     if (currentPath === '/partners') {

@@ -36,12 +36,14 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { label: 'Programme', path: '/programme' },
-    { label: 'Schedule', path: '/schedule' },
-    { label: 'Brochure', path: '/brochure' },
-    { label: 'Archive', path: '/archive' },
-    { label: 'The Symphonisers', path: '/the-symphonisers' },
-    { label: 'Partners', path: '/partners' },
+    { label: 'Programme', path: '/programme', isExternal: false },
+    { label: 'Schedule', path: '/schedule', isExternal: false },
+    { label: 'Brochure', path: '/brochure', isExternal: false },
+    { label: 'Archive', path: '/archive', isExternal: false },
+    { label: 'The Symphonisers', path: '/thesymphonisers', isExternal: false },
+    { label: 'Partners', path: '/partners', isExternal: false },
+    { label: 'Discord', path: 'https://discord.gg/7zedz2wyG7', isExternal: true },
+    { label: 'WhatsApp', path: 'https://chat.whatsapp.com/Ivu3yePs0Kd9h3VIQSQAUA', isExternal: true },
   ];
 
   return (
@@ -88,8 +90,27 @@ export const Navbar: React.FC<NavbarProps> = ({
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs font-medium tracking-wider uppercase font-body">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-xs font-medium tracking-wider uppercase font-body">
             {navLinks.map((item) => {
+              if (item.isExternal) {
+                return (
+                  <a
+                    key={item.label}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`relative py-1 inline-flex items-center gap-1 cursor-pointer transition-colors duration-200 ${
+                      isDarkTheme
+                        ? 'text-[#FAF9F5]/80 hover:text-[#00C4FF]'
+                        : 'text-[#575757] hover:text-[#1C4463]'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    <span className="font-mono text-[10px] opacity-70">↗</span>
+                  </a>
+                );
+              }
+
               const isActive = currentPath === item.path;
               return (
                 <button
@@ -166,20 +187,42 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#575757] block mb-2">
               NAVIGATION MENU
             </span>
-            {navLinks.map((item) => (
-              <button
-                key={item.path}
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  onNavigate(item.path);
-                }}
-                className={`text-left font-display text-2xl sm:text-3xl font-extrabold uppercase tracking-tight py-2.5 border-b ${
-                  isDarkTheme ? 'border-white/10 text-[#FAF9F5]' : 'border-[#151515]/10 text-[#151515]'
-                } ${currentPath === item.path ? (isDarkTheme ? 'text-[#00C4FF]' : 'text-[#1C4463]') : ''}`}
-              >
-                {item.label}
-              </button>
-            ))}
+            {navLinks.map((item) => {
+              if (item.isExternal) {
+                return (
+                  <a
+                    key={item.label}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-left font-display text-2xl sm:text-3xl font-extrabold uppercase tracking-tight py-2.5 border-b flex items-center justify-between transition-colors ${
+                      isDarkTheme
+                        ? 'border-white/10 text-[#FAF9F5] hover:text-[#00C4FF]'
+                        : 'border-[#151515]/10 text-[#151515] hover:text-[#1C4463]'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    <span className="font-mono text-lg opacity-70">↗</span>
+                  </a>
+                );
+              }
+
+              return (
+                <button
+                  key={item.path}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onNavigate(item.path);
+                  }}
+                  className={`text-left font-display text-2xl sm:text-3xl font-extrabold uppercase tracking-tight py-2.5 border-b transition-colors ${
+                    isDarkTheme ? 'border-white/10 text-[#FAF9F5]' : 'border-[#151515]/10 text-[#151515]'
+                  } ${currentPath === item.path ? (isDarkTheme ? 'text-[#00C4FF]' : 'text-[#1C4463]') : ''}`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
           </div>
 
           <div className="flex flex-col gap-3 pt-6 border-t border-black/10">

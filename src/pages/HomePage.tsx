@@ -53,7 +53,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <PartnersSection />
 
       {/* 7. THE SYMPHONISERS ACKNOWLEDGEMENT */}
-      <SymphonisersAcknowledgement onMeetSociety={() => onNavigate('/the-symphonisers')} />
+      <SymphonisersAcknowledgement onMeetSociety={() => onNavigate('/thesymphonisers')} />
 
       {/* 8. FINAL REGISTRATION CTA (One Master Timeline with Ribbon Settle) */}
       <FinalCta

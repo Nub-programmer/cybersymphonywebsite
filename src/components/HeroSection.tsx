@@ -201,9 +201,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
         y: 0,
       });
 
-      // 2. Desktop master pinned timeline (only on >= 768px)
+      // 2. Responsive matchMedia
       const mm = gsap.matchMedia();
-      mm.add('(min-width: 768px)', () => {
+
+      // DESKTOP: Master pinned timeline (>= 769px)
+      mm.add('(min-width: 769px)', () => {
         const masterTl = gsap.timeline({
           scrollTrigger: {
             trigger: wrapperRef.current,
@@ -287,6 +289,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
           0.75
         );
       });
+
+      // MOBILE: Natural document scroll, lightweight entrance (<= 768px)
+      mm.add('(max-width: 768px)', () => {
+        gsap.set(
+          [theRef.current, cyberRef.current, symphonyRef.current, logoRightRef.current, yearRef.current],
+          { clearProps: 'all' }
+        );
+
+        gsap.fromTo(
+          [metaTopRef.current, titleContainerRef.current, logoRightRef.current, metaBottomRef.current],
+          { opacity: 0, y: 16 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            stagger: 0.08,
+            ease: 'power2.out',
+            clearProps: 'transform',
+          }
+        );
+      });
     }, wrapperRef);
 
     return () => ctx.revert();
@@ -294,7 +317,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
 
   // Dynamic style applied to headings
   const headingStyle: React.CSSProperties = {
-    fontSize: fittedFontSize ? `${fittedFontSize}px` : 'clamp(3.5rem, 8.2vw, 9.8rem)',
+    fontSize: fittedFontSize ? `${fittedFontSize}px` : 'clamp(2.75rem, 8.2vw, 9.8rem)',
     lineHeight: 0.84,
     letterSpacing: '-0.04em',
   };
@@ -302,7 +325,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
   return (
     <section
       ref={wrapperRef}
-      className="relative w-full h-screen min-h-[620px] flex flex-col justify-between px-[var(--gutter-site)] pt-24 pb-8 bg-[#FAF9F5] text-[#151515] select-none overflow-x-hidden"
+      className="relative w-full min-h-[100svh] md:h-screen md:min-h-[660px] flex flex-col justify-between px-[var(--gutter-site)] pt-20 sm:pt-24 pb-8 bg-[#FAF9F5] text-[#151515] select-none overflow-hidden"
     >
       <div className="w-full max-w-[var(--content-max-width)] mx-auto flex flex-col justify-between h-full">
         {/* Top Supporting Meta Row */}
@@ -327,7 +350,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
         */}
         <div
           ref={posterRef}
-          className="relative my-auto w-full grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_clamp(180px,19vw,320px)] items-center gap-6 lg:gap-10 z-10 py-2 sm:py-4 transform md:-translate-y-4"
+          className="relative my-auto w-full grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_clamp(180px,19vw,320px)] items-center gap-6 lg:gap-10 z-10 py-4 sm:py-6 transform md:-translate-y-4"
         >
           {/* LEFT: TITLE COLUMN (min-width: 0 prevents flex/grid blowout) */}
           <div
@@ -340,7 +363,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
                 ref={theRef}
                 className="hero-the font-display font-bold text-[#151515] uppercase block whitespace-nowrap"
                 style={{
-                  fontSize: 'clamp(2.8rem, 4vw, 5rem)',
+                  fontSize: 'clamp(2rem, 5vw, 5rem)',
                   fontWeight: 700,
                   lineHeight: 0.85,
                   letterSpacing: '-0.045em',
@@ -380,7 +403,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
             </div>
           </div>
 
-          {/* RIGHT: OFFICIAL EMBLEM & 2026 GROUP (Direct on off-white background, no white card/box) */}
+          {/* RIGHT: OFFICIAL EMBLEM & 2026 GROUP */}
           <div
             ref={logoRightRef}
             className="hero-logo-wrap relative flex flex-col items-center justify-center bg-transparent [isolation:isolate] select-none mt-4 md:mt-0"
@@ -402,7 +425,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
               <img
                 src={cyberSymphonyLogo}
                 alt="Cyber Symphony"
-                className="hero-logo block w-[clamp(150px,15vw,230px)] h-auto object-contain bg-transparent border-0 shadow-none filter drop-shadow-[0_0_26px_rgba(28,160,255,0.10)] select-none pointer-events-none"
+                className="hero-logo block w-[clamp(120px,37vw,180px)] md:w-[clamp(150px,15vw,230px)] h-auto object-contain bg-transparent border-0 shadow-none filter drop-shadow-[0_0_26px_rgba(28,160,255,0.10)] select-none pointer-events-none"
                 draggable={false}
               />
             </div>
@@ -446,7 +469,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
 
           <a
             href="/register"
-            className="btn-tactile hover-underline font-semibold text-[#151515] hover:text-[#1C4463] transition-colors cursor-pointer group flex items-center gap-1.5"
+            className="btn-tactile hover-underline font-semibold text-[#151515] hover:text-[#1C4463] transition-colors cursor-pointer group flex items-center gap-1.5 min-h-[44px] sm:min-h-0"
           >
             <span>REGISTER YOUR SCHOOL</span>
             <span className="transform transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-0.5">
@@ -456,10 +479,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
         </div>
       </div>
 
-      {/* FESTIVAL RIBBON ENTERS FROM LOWER-LEFT DURING END OF HERO SCROLL */}
+      {/* FESTIVAL RIBBON ENTERS FROM LOWER-LEFT DURING END OF HERO SCROLL (DESKTOP ONLY) */}
       <div
         ref={ribbonWrapperRef}
-        className="absolute bottom-16 sm:bottom-20 -left-[10%] w-[125%] z-20 pointer-events-none opacity-0"
+        className="hidden md:block absolute bottom-16 sm:bottom-20 -left-[10%] w-[125%] z-20 pointer-events-none opacity-0"
       >
         <FestivalRibbon
           bgColor="bg-[#1C4463]"

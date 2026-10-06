@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, isDarkTheme = false 
             <button onClick={() => onNavigate('/brochure')} className="text-left opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
               Field Guide Brochure
             </button>
-            <button onClick={() => onNavigate('/the-symphonisers')} className="text-left opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+            <button onClick={() => onNavigate('/thesymphonisers')} className="text-left opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
               The Symphonisers
             </button>
             <button onClick={() => onNavigate('/partners')} className="text-left opacity-70 hover:opacity-100 transition-opacity cursor-pointer">

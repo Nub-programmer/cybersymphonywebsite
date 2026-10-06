@@ -17,8 +17,8 @@ export interface Partner {
 }
 
 export const MAJOR_ROBOTICS_PARTNER: Partner = {
-  id: 'fiz-robotics',
-  name: 'FIZ ROBOTICS',
+  id: 'fiz-robotics-solutions',
+  name: 'FIZ ROBOTICS SOLUTIONS',
   role: 'MAIN ROBOTICS PARTNER',
   category: 'Event Execution & Technical Assistance',
   description:

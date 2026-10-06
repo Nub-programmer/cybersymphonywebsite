@@ -36,7 +36,8 @@ export const BrochureSection: React.FC<BrochureSectionProps> = ({
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      mm.add('(min-width: 768px)', () => {
+      // DESKTOP: Timeline (>= 769px)
+      mm.add('(min-width: 769px)', () => {
         const masterTl = gsap.timeline({
           scrollTrigger: {
             trigger: pinnedStageRef.current,
@@ -65,13 +66,36 @@ export const BrochureSection: React.FC<BrochureSectionProps> = ({
           0.05
         );
       });
+
+      // MOBILE: Natural flow entrance (<= 768px)
+      mm.add('(max-width: 768px)', () => {
+        gsap.fromTo(
+          sectionRef.current,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      });
     }, sectionRef);
 
     return () => ctx.revert();
   }, [hasEntered]);
 
-  // Pointer perspective tilt (physical booklet response)
+  // Pointer perspective tilt (physical booklet response - desktop only)
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window === 'undefined') return;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    if (isTouch) return;
+
     const el = bookletRef.current;
     if (!el || isBrochureOpen) return;
 
