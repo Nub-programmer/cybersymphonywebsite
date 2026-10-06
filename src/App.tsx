@@ -11,6 +11,7 @@ import { TheSymphonisersPage } from './pages/TheSymphonisersPage';
 import { PartnersPage } from './pages/PartnersPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { RegisterPage } from './pages/RegisterPage';
+import { WhatsAppPage } from './pages/WhatsAppPage';
 import { initLenis, destroyLenis, scrollToTop, refreshScroll } from './utils/scroll';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -127,6 +128,9 @@ export default function App() {
     }
     if (currentPath === '/register') {
       return <RegisterPage onNavigate={navigateTo} />;
+    }
+    if (currentPath === '/whatsapp') {
+      return <WhatsAppPage />;
     }
     return (
       <HomePage
