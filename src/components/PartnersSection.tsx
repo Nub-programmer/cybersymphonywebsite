@@ -29,7 +29,7 @@ export const PartnersSection: React.FC = () => {
           </h2>
         </div>
 
-        {/* 1. MAJOR ROBOTICS PARTNER: FIZ ROBOTICS SOLUTIONS FEATURED ROW */}
+        {/* 1. MAJOR ROBOTICS PARTNER: FIZ ROBOTIC SOLUTIONS FEATURED ROW */}
         <div className="border-y-2 border-[#151515] py-10 md:py-14 mb-16 bg-[#151515]/[0.02] px-6 sm:px-10 rounded-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left: Prominent Logo */}
@@ -37,7 +37,7 @@ export const PartnersSection: React.FC = () => {
               <div className="h-14 sm:h-18 w-auto max-w-[280px] flex items-center">
                 <img
                   src={MAJOR_ROBOTICS_PARTNER.logo}
-                  alt="FIZ Robotics Solutions Logo"
+                  alt="FIZ Robotic Solutions Logo"
                   className="max-h-full max-w-full object-contain filter drop-shadow-sm"
                 />
               </div>

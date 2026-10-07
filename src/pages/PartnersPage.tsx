@@ -32,7 +32,7 @@ export const PartnersPage: React.FC<PartnersPageProps> = ({ onNavigate }) => {
               <div className="h-16 sm:h-20 w-auto max-w-[320px] flex items-center">
                 <img
                   src={MAJOR_ROBOTICS_PARTNER.logo}
-                  alt="FIZ Robotics Solutions Logo"
+                  alt="FIZ Robotic Solutions Logo"
                   className="max-h-full max-w-full object-contain filter drop-shadow-sm"
                 />
               </div>
