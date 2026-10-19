@@ -44,6 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'Partners', path: '/partners', isExternal: false },
     { label: 'Discord', path: 'https://discord.gg/7zedz2wyG7', isExternal: true },
     { label: 'WhatsApp', path: 'https://chat.whatsapp.com/Ivu3yePs0Kd9h3VIQSQAUA', isExternal: true },
+    { label: 'Results 2026', path: '/results2k26', isExternal: false },
   ];
 
   return (
