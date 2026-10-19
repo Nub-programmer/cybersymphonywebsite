@@ -40,7 +40,7 @@ const RESULTS: CompetitionResult[] = [
   {
     name: 'Tech Crossfire',
     firstPlace: 'National Institute of Open Schooling (NIOS)',
-    secondPlace: 'DAV Public School',
+    secondPlace: 'Delhi Public School, R.K. Puram',
   },
   {
     name: 'Twist Triads (Cube Solving)',
