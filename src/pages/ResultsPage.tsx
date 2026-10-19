@@ -45,7 +45,7 @@ const RESULTS: CompetitionResult[] = [
   {
     name: 'Twist Triads (Cube Solving)',
     firstPlace: 'Delhi Public School, R.K. Puram',
-    secondPlace: 'JP Public School',
+    secondPlace: 'Jaypee Public School, Noida',
   },
   {
     name: 'UI/UX Rumble',
@@ -59,7 +59,7 @@ const RESULTS: CompetitionResult[] = [
   },
   {
     name: 'Robo Soccer',
-    firstPlace: 'JP Public School',
+    firstPlace: 'Jaypee Public School, Noida',
     secondPlace: 'Alpine Public School',
   },
   {
