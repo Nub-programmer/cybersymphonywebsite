@@ -63,9 +63,9 @@ const RESULTS: CompetitionResult[] = [
     secondPlace: 'Alpine Public School',
   },
   {
-    name: 'Website Designing',
-    firstPlace: 'National Institute of Open Schooling (NIOS)',
-    secondPlace: 'Puranchandra Vidya Niketan, Kanpur',
+    name: 'Innovation Spirit',
+    firstPlace: 'Jagran Public School, Lucknow',
+    secondPlace: 'National Institute of Open Schooling (NIOS)',
   },
 ];
 
