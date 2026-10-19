@@ -44,7 +44,7 @@ const RESULTS: CompetitionResult[] = [
   },
   {
     name: 'Twist Triads (Cube Solving)',
-    firstPlace: 'Delhi Public School',
+    firstPlace: 'Delhi Public School, R.K. Puram',
     secondPlace: 'JP Public School',
   },
   {
