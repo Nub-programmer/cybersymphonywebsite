@@ -2,6 +2,7 @@ import React from 'react';
 import { HeroSection } from '../components/HeroSection';
 import { FestivalStatement } from '../components/FestivalStatement';
 import { EventProgramme } from '../components/EventProgramme';
+import { ResultsSection } from '../components/ResultsSection';
 import { ArchiveSection } from '../components/ArchiveSection';
 import { BrochureSection } from '../components/BrochureSection';
 import { PartnersSection } from '../components/PartnersSection';
@@ -37,25 +38,28 @@ export const HomePage: React.FC<HomePageProps> = ({
         hasEntered={hasEntered}
       />
 
-      {/* 4. PREVIOUS EDITION ARCHIVE (One Master Timeline & Behind-photo Ribbon) */}
+      {/* 4. RESULTS ANNOUNCEMENT */}
+      <ResultsSection onExploreResults={() => onNavigate('/results2k26')} />
+
+      {/* 5. PREVIOUS EDITION ARCHIVE (One Master Timeline & Behind-photo Ribbon) */}
       <ArchiveSection
         onViewFullArchive={() => onNavigate('/archive')}
         hasEntered={hasEntered}
       />
 
-      {/* 5. IN PRINT / BROCHURE FIELD GUIDE (One Master Timeline) */}
+      {/* 6. IN PRINT / BROCHURE FIELD GUIDE (One Master Timeline) */}
       <BrochureSection
         onOpenFullBrochure={() => onNavigate('/brochure')}
         hasEntered={hasEntered}
       />
 
-      {/* 6. PARTNERS (Quiet Horizontal Ribbon Strip) */}
+      {/* 7. PARTNERS (Quiet Horizontal Ribbon Strip) */}
       <PartnersSection />
 
-      {/* 7. THE SYMPHONISERS ACKNOWLEDGEMENT */}
+      {/* 8. THE SYMPHONISERS ACKNOWLEDGEMENT */}
       <SymphonisersAcknowledgement onMeetSociety={() => onNavigate('/thesymphonisers')} />
 
-      {/* 8. FINAL REGISTRATION CTA (One Master Timeline with Ribbon Settle) */}
+      {/* 9. FINAL REGISTRATION CTA (One Master Timeline with Ribbon Settle) */}
       <FinalCta
         onRegisterClick={() => onNavigate('/register')}
         hasEntered={hasEntered}

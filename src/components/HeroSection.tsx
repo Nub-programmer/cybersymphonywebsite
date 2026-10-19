@@ -401,6 +401,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick, hasEn
                 </span>
               </h1>
             </div>
+            <span className="mt-3 block pl-[0.08em] font-mono text-[10px] font-semibold tracking-[0.28em] text-[#325E7D] uppercase sm:mt-4 sm:text-xs">
+              CONCLUDED
+            </span>
           </div>
 
           {/* RIGHT: OFFICIAL EMBLEM & 2026 GROUP */}
