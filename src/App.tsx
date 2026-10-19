@@ -12,6 +12,7 @@ import { PartnersPage } from './pages/PartnersPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { RegisterPage } from './pages/RegisterPage';
 import { WhatsAppPage } from './pages/WhatsAppPage';
+import { ResultsPage } from './pages/ResultsPage';
 import { initLenis, destroyLenis, scrollToTop, refreshScroll } from './utils/scroll';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -131,6 +132,9 @@ export default function App() {
     }
     if (currentPath === '/whatsapp') {
       return <WhatsAppPage />;
+    }
+    if (currentPath === '/results2k26') {
+      return <ResultsPage />;
     }
     return (
       <HomePage
